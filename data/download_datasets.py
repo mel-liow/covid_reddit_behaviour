@@ -19,18 +19,18 @@ def main(output_dir=''):
     for file in files:
         filename = file.split('/')[-1]
         print(f'downloading {filename}...')
+        
         req = requests.get(file)
-        url_content = req.content
 
         if opt[output_dir] is not None:
             csv_file = open(opt[output_dir] + filename, 'wb')
         else:
             csv_file = open(filename, 'wb')
         
-        print(f'{files.index(file) + 1}/{number_of_files} file downloads complete')
-
-        csv_file.write(url_content)
+        csv_file.write(req.content)
         csv_file.close()
+
+        print(f'{files.index(file) + 1}/{number_of_files} file downloads complete')
 
 if __name__ == '__main__':
     main('<output_dir>')
