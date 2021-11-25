@@ -3,7 +3,7 @@
 
 This is an introduction to the report
 
-Here is a [reference to the intro](introduction.md). Here is a reference to [](section-label).
+Here is a [reference to the intro](introduction.md). Here is a reference to [hello](holdgraf_evidence_2014).
 
 And here is a code block:
 
