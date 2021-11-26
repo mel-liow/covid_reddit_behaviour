@@ -38,17 +38,17 @@ def main(data_path, output_file):
     None
     """
     # read the datasets
-    preprocessed_data = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
-    pre_datasets = [x for x in preprocessed_data if '_pre_' in x]
-    post_datasets = [y for y in preprocessed_data if '_post_' in y]
+    preprocessed_data_files = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
+    files = [x for x in preprocessed_data_files]
 
     results = {}
-    for i, file in enumerate(pre_datasets):
+    for i, file in enumerate(files):
         # analysis\preprocessing\*.csv
-        pre = pd.read_csv(data_path + file)['substance_use_total']
-        post = pd.read_csv(data_path + post_datasets[i])['substance_use_total']
+        df = pd.read_csv(data_path + file)
+        pre = df.loc[df['period'] == 'pre']['substance_use_total']
+        post = df.loc[df['period'] == 'post']['substance_use_total']
         test_statistic, p_val = ranksums(pre, post, alternative='two-sided')
-        results[pre_datasets[i].split('_')[0]] = {'test_statistic': test_statistic,
+        results[file.split('_')[0]] = {'test_statistic': test_statistic,
                                                   'p_value': p_val}
 
     pd.DataFrame(results).T.to_csv(output_file)
