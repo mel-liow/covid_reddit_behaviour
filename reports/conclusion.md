@@ -6,3 +6,9 @@ We conducted a statistical analysis on data gathered from multiple subreddits to
 
 We discuss limitations of our analysis in our [results](results.md) and include an examination of our datasets in the [data analysis](data_analyis).
 
+## Limitations
+
+
+
+
+## Further work
