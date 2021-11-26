@@ -32,7 +32,7 @@ More information can be found [here](https://zenodo.org/record/3941387#.YZl5BC1h
 ## Usage
 To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow. Please run the following commands at the command line/terminal from the `/data` directory of this project after cloning the GitHub repository to your machine.
 
-Navigate to the `/data` directory and run either of the following scripts to download the dataset:
+1. Navigate to the `/data` directory and run either of the following scripts to download the dataset:
 Using python:
 ```console
 $ python download_datasets.py [<output_directory>]
@@ -41,6 +41,16 @@ $ python download_datasets.py [<output_directory>]
 Using R:
 ```console
 $ R download_datasets.r [<output_directory>]
+```
+
+2. Process the raw data by running the following script in the `/data` directory:
+```console
+$ python process_raw.py --in_dir='data/raw/' --out_dir='data/processed/'
+```
+
+3. Run statistical tests by running the following script in the `/analysis` directory:
+```console
+$ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tests/stat_tests.csv'
 ```
 
 ## License
