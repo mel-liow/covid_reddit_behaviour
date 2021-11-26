@@ -41,8 +41,6 @@ def main(data_path, output_file):
     preprocessed_data = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
     pre_datasets = [x for x in preprocessed_data if '_pre_' in x]
     post_datasets = [y for y in preprocessed_data if '_post_' in y]
-    print(pd.Series(pre_datasets))
-    print(pd.Series(post_datasets))
 
     results = {}
     for i, file in enumerate(pre_datasets):
