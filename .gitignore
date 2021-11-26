@@ -1,3 +1,4 @@
 /data/raw/*.csv
 /data/processed/*.csv
 /reports/_build
+/analysis/stat_tests/*
