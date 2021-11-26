@@ -52,6 +52,8 @@ $ python process_raw.py --in_dir='data/raw/' --out_dir='data/processed/'
 ```console
 $ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tests/stat_tests.csv'
 ```
+The workflow of our analysis is illustrated in the flowchart below.
+![Flowchart](flowchart.png)
 
 ## License
 The source code for the site is licensed under the MIT license, which you can find [here](https://github.com/UBC-MDS/covid_reddit_behaviour/blob/main/LICENSE).
