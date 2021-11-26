@@ -1,6 +1,6 @@
 # Methodology
 
-In order to investigate how substance use on Reddit has changed over the pandemic, we first conduct an exploratory data analysis (eda) on several Reddit datasets described below.
+In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and then conduct an exploratory data analysis (eda) on several Reddit datasets which is described below.
 ## Data set
 
 The datasets were obtained from [Reddit mental health dataset](https://zenodo.org/record/3941387#.YZl5BC1h1QL), a dataset processed and organised by Low et al {cite:p}`low2020natural`. They provide us with two CSV files, for each period (pre and post pandemic), for 15 different subreddits. 
@@ -29,6 +29,6 @@ Nobby to write about data cleaning...
 - 
 
 ## Data analysis
-To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the [data analysis](TODO) section.
+To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the [data analysis](data_analysis.md) section.
 
-We perform a statistical test and report the findings in the [results]() section. 
+We perform a statistical test and report the findings in the [results](results.ipynb) section. 
