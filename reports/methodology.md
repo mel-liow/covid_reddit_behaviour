@@ -7,7 +7,7 @@ The datasets were obtained from [Reddit mental health dataset](https://zenodo.or
 
 Each observation is a Reddit user's post - a message written on a specific subreddit - which has been processed to extract features that are common in natural language processing.
 
-The feature extractions are as follows:
+The feature extractions are as follows (n is the number of columns):
 - LIWC (n=62);
 - sentiment analysis (n=4); 
 - basic word and syllable counts (n=8); 
@@ -17,11 +17,9 @@ The feature extractions are as follows:
 - manually built lexicons about suicidality (n=1), economic stress (n=1), isolation (n=1), substance use (n=1), domestic stress (n=1), and guns (n=1). 
 
 Alongside these features include:
-- Reddit user name
-- Date of post
-- 
-
-
+- author (Reddit user name)
+- date
+- post
 ## Data cleaning
 
 Nobby to write about data cleaning...
