@@ -29,6 +29,6 @@ Nobby to write about data cleaning...
 - 
 
 ## Data analysis
-To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the [data analysis](data_analysis.md) section.
+To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the next section.
 
-We perform a statistical test and report the findings in the [results](results.ipynb) section. 
+We perform a statistical test and report the findings in the [results](results.ipynb) section. Finally, we discuss our analysis methods and limitations in the [conclusion](conclusion.md).
