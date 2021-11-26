@@ -11,5 +11,5 @@ We aim to find the impact of COVID-19 on mental health support groups by looking
 > Has frequency of explicit description of substance abuse in mental-health-oriented subreddits changed over the pandemic.
 
 This report will introduce the data set and take the reader through the data pre-processing, analysis and statistical tests in order to answer the question of interest.
-Each section of this report will detail the analysis and methods used, and additionally reference the required software libraries. The results can be found under the results section with key findings discussed durther in the conclusion.
+Each section of this report will detail the analysis and methods used, and additionally reference the required software libraries. The results can be found under the results section with key findings discussed further in the conclusion.
 
