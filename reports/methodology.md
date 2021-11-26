@@ -20,15 +20,23 @@ Alongside these features include:
 - author (Reddit user name)
 - date
 - post
-## Data cleaning
+## Data cleaning/transformation
 
-Nobby to write about data cleaning...
-- what we did
-- what we could have done further 
-- feature engineering? create new features?
-- 
+In order to answer the question "How has the substance use increased over the pandemic?", the feature `substance_use_total` is selected as the target feature, and the data is cleaned to focus exclusively on this feature.
+
+The Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`reback2020pandas` were used to perform the data cleaning process.
+### Data Cleaning Steps
+- Combine the `pre` and `post` datasets into one dataset. 
+- Filter the dataset to keep only the columns of interest, including `subreddit`, `author`, `date`, `post`, and `substance_use_total`.
+### Feature Engineering
+- We apply a simple method by adding a new feature `period` to indicate the timeframe of the posts (before or after the pandemic). This helps to represent the data better and to compare the timeframes more easily in later parts of this report. 
+### Room for improvement
+- It is noted that in our `process_raw.py` script, we used the `try-except` block to make the script runnable. The reason behind is to allow the script to load all files except for files with extension `.DS_Store`.  The `.DS_Store` files are automatically created by Mac OS X Finder in browsed directories.
+- In case more time to work on this is given, we expect to enhance the `process_raw.py` script without using the `try-except` block.
+
 
 ## Data analysis
 To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the next section.
 
 We perform a statistical test and report the findings in the [results](results.ipynb) section. Finally, we discuss our analysis methods and limitations in the [conclusion](conclusion.md).
+
