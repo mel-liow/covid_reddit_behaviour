@@ -24,7 +24,7 @@ Alongside these features include:
 
 In order to answer the question "How has the substance use increased over the pandemic?", the feature `substance_use_total` is selected as the target feature, and the data is cleaned to focus exclusively on this feature.
 
-The Python programming language and the Pandas library were used to perform the data cleaning process.
+The Python programming language  and the Pandas library {cite:p}`reback2020pandas` were used to perform the data cleaning process.
 ### Data Cleaning Steps
 - Combine the `pre` and `post` datasets into one dataset. 
 - Filter the dataset to keep only the columns of interest, including `subreddit`, `author`, `date`, `post`, and `substance_use_total`.
