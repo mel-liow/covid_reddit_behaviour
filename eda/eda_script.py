@@ -54,7 +54,7 @@ def main(data_path, outputfile):
     #get the distribution of the target feature
     histograms(data, outputfile)
     #get the time series plot of the target feature
-    time_line(data, outputfile)
+    create_timeseries(data, outputfile)
 
 
 def histograms(data, outputfile):
@@ -81,7 +81,7 @@ def histograms(data, outputfile):
     #save the file
     save(hist, outputfile + name_hist)
 
-def time_line(data, outputfile):
+def create_timeseries(data, outputfile):
     """
     create time on the x axis and number of substance_use_total on the y-axis, 
     to see the trend over time, then save the figures as png file to the outputfile location.
