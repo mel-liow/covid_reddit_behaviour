@@ -30,7 +30,14 @@ More information can be found [here](https://zenodo.org/record/3941387#.YZl5BC1h
 
 
 ## Usage
-To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow. Please run the following commands at the command line/terminal from the `/data` directory of this project after cloning the GitHub repository to your machine.
+To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow.
+Please run the following commands at the command line/terminal after cloning the GitHub repository to your machine.
+
+Install our conda environment:
+```console
+conda env create -f env.yaml
+conda activate covid_reddit_behaviour
+```
 
 1. Navigate to the `/data` directory and run either of the following scripts to download the dataset:
 Using python:
@@ -52,6 +59,19 @@ $ python process_raw.py --in_dir='data/raw/' --out_dir='data/processed/'
 ```console
 $ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tests/stat_tests.csv'
 ```
+
+4. Create EDA diagrams by running the following script in ...:
+```console
+
+// MAEVE TO COMPLETE
+```
+
+5. Build and view the report using Jupyter book from the root directory:
+```console
+jupyter-book build reports
+```
+
+### Workflow summary
 The workflow of our analysis is illustrated in the flowchart below.
 ![Flowchart](flowchart.png)
 
