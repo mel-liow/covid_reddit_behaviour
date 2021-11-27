@@ -1,125 +1,17 @@
 # Conclusion
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
+We conducted a statistical analysis on data gathered from multiple subreddits to answer an inferential question on whether the number of substance abuse references increased during the 2020 COVID-19 pandemic on Reddit.
 
-## What is MyST?
+We discuss limitations of our analysis in our [results](results.md) and include an examination of our datasets in the [data analysis](data_analyis).
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+The hypothesis tests for each subreddit are presented in a [table](results.md) and shows the different subreddits along with the p-values. p-values less than 0.05 indicate that there is statistical evidence that the median number of references to substance abuse has changed post-COVID.
 
-## What are roles and directives?
+We conclude that only two subreddits, r/adhd and r/lonely show statistically siginificant difference. Accordingly, we reject the null hypothesis in favour of the alternative hypothesis - that in these subreddits, the median number of references to substance abuse per reddit-post has changed between 'pre-COVID' and 'post-COVID'.
+## Further work
+Note that we did not explicitly comment on whether the median is significantly less or more than pre-COVID times. It would be interesting to compare and plot how each subreddit has changed to visually show the results.
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
-
-### Using a directive
-
-At its simplest, you can insert a directive into your book's content like so:
-
-````
-```{mydirectivename}
-My directive content
-```
-````
-
-This will only work if a directive with name `mydirectivename` already exists
-(which it doesn't). There are many pre-defined directives associated with
-Jupyter Book. For example, to insert a note box into your content, you can
-use the following directive:
-
-````
-```{note}
-Here is a note
-```
-````
-
-This results in:
-
-```{note}
-Here is a note
-```
-
-In your built book.
-
-For more information on writing directives, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
-
-
-### Using a role
-
-Roles are very similar to directives, but they are less-complex and written
-entirely on one line. You can insert a role into your book's content with
-this pattern:
-
-```
-Some content {rolename}`and here is my role's content!`
-```
-
-Again, roles will only work if `rolename` is a valid role's name. For example,
-the `doc` role can be used to refer to another page in your book. You can
-refer directly to another page by its relative path. For example, the
-role syntax `` {doc}`intro` `` will result in: {doc}`intro`.
-
-For more information on writing roles, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
-
-
-### Adding a citation
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-````
-```{bibliography}
-```
-````
-
-Resulting in a rendered bibliography that looks like:
-
-```{bibliography}
-```
-
-
-### Executing code in your markdown files
-
-If you'd like to include computational content inside these markdown files,
-you can use MyST Markdown to define cells that will be executed when your
-book is built. Jupyter Book uses *jupytext* to do this.
-
-First, add Jupytext metadata to the file. For example, to add Jupytext metadata
-to this markdown page, run this command:
-
-```
-jupyter-book myst init markdown.md
-```
-
-Once a markdown file has Jupytext metadata in it, you can add the following
-directive to run the code at build time:
-
-````
-```{code-cell}
-print("Here is some code to execute")
-```
-````
-
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
-
-For more information about executing computational content with Jupyter Book,
-see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
+Additionally there are numerous other questions that we could have asked with this dataset, namely questions that involve text sentiment:
+- Analyse which words/sentiments are most-associated with particular subreddits dedicated to particular health concerns;
+- Identify whether those who self-identify with particular illnesses choose particular language to express their feelings/symptoms, or whether there are common terms across self-described mental health groups;
+- How can we flag users that are in need of urgent attention and care based on their comments;
+- Can we apply what we've learned from the mental-health-specific subreddits and see if we can identify related behaviour/sentiments in the non-mental-health subreddits (i.e. do people in r/divorce use some of the same language as those in r/depression).
