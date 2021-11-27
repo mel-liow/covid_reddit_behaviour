@@ -1,6 +1,6 @@
 /data/raw/*.csv
 /data/processed/*.csv
-/analysis/stat_tests/*
+/analysis/stat_tests/*.csv
 
 .DS_Store
 *.pyc
