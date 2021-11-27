@@ -4,9 +4,9 @@
 """
 This script performs exploratory data visualization on a given dataset
 
-Usage: eda/eda_script.py --data_path=<data_path> --outputfile=<outputfile>
+Usage: eda/eda_script.py --data_path=<dir> --outputfile=<outputfile>
 Options:
---data_path=<data_path>           Specify the path of the input data.
+--data_path=<dir>            the dir where preprocessed data is stored
 --outputfile=<outputfile>         Specify the place to save the images.
 """
 
@@ -28,14 +28,6 @@ opt = docopt.docopt(__doc__)
 alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
-
-#extract the file name
-
-name = os.path.splitext(os.path.split(opt["--data_path"])[1])[0]
-name_hist = '/'+ name + '_histogram.png'
-name_line = '/'+ name + '_line.png'
-
-
 def main(data_path, outputfile):
     """
     calls visualization function to create charts and bars from the dataset
@@ -49,15 +41,24 @@ def main(data_path, outputfile):
     -----
     None
     """
-    # read the dataset
-    data = pd.read_csv(data_path)
     #creat path of the output img if the path doesn't exist
     if not os.path.exists(os.path.dirname(outputfile)):
         os.makedirs(os.path.dirname(outputfile))
-    #get the distribution of the target feature
-    histograms(data, outputfile)
-    #get the time series plot of the target feature
-    create_timeseries(data, outputfile)
+    #load the data sets     
+    preprocessed_data_files = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
+    files = [x for x in preprocessed_data_files]
+    
+    for i, file in enumerate(files):
+        # analysis\preprocessing\*.csv
+        df = pd.read_csv(data_path + file)
+        #create output images name
+        name = os.path.splitext(os.path.split(data_path+file)[1])[0]
+        name_hist = name + '_histogram.png'
+        name_line = name + '_line.png'
+        #get the distribution of the target feature
+        histograms(df, outputfile)
+        #get the time series plot of the target feature
+        create_timeseries(df, outputfile)
 
 
 def histograms(data, outputfile):
