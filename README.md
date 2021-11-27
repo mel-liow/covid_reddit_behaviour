@@ -61,7 +61,7 @@ $ python process_raw.py --in_dir='data/raw/' --out_dir='data/processed/'
 $ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tests/stat_tests.csv'
 ```
 
-4. Create EDA diagrams by running the following script in ...:
+4. Create EDA diagrams by running the following script in the `/eda` directory:
 ```console
 
 $ python eda_script.py --data_path='data/processed/' --output='eda/figures'
