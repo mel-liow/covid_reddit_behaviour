@@ -10,7 +10,7 @@ Here we attempt to look into the [reddit mental health dataset](https://zenodo.o
 
 For the first week, we conducted exploratory data analysis on 30 datasets (15 mental subreddits, each with a self-described 'pre' and 'post' pandemic dataset), which can be found [here](https://github.com/UBC-MDS/covid_reddit_behaviour/tree/eda/eda/subreddit). The exploratory data analysis mainly focus on these parts:
 
-- Features: We explored the features in details by the published paper [here](https://www.jmir.org/2020/10/e22635/.) and decided to only include `substance_use_total`, `subreddit`, `author`, `date`, `post`, and exclude all other features, because they are the only ones relevant to the question. 
+- Features: We explored the features in details by the [published paper](https://www.jmir.org/2020/10/e22635/.) and decided to only include `substance_use_total`, `subreddit`, `author`, `date`, `post`, and exclude all other features, because they are the only ones relevant to the question. 
 
 - High Level Analysis: We checked if there's any missing values in datasets, as well as what needs to be cleaned. Then we concatenated the pre and post data set to see the difference of descriptive variables.  
 
@@ -39,7 +39,8 @@ conda env create -f env.yaml
 conda activate covid_reddit_behaviour
 ```
 
-1. Navigate to the `/data` directory and run either of the following scripts to download the dataset:
+1. Navigate to the `/data` directory and run either of the following scripts to download the dataset:  
+
 Using python:
 ```console
 $ python download_datasets.py [<output_directory>]
