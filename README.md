@@ -64,7 +64,7 @@ $ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tes
 4. Create EDA diagrams by running the following script in the `/eda` directory:
 ```console
 
-$ python eda_script.py --data_path='data/processed/' --output='eda/figures'
+$ python eda_script.py --data_path='data/processed/' --output='eda/figures/'
 ```
 
 5. Build and view the report using Jupyter book from the root directory:
