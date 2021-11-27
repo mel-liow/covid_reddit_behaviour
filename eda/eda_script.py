@@ -12,19 +12,22 @@ Options:
 
 # import relevant modules
 from datetime import date
-from altair.vegalite.v4.schema.core import LinearGradient
-from docopt import docopt
 import altair as alt
 
 import numpy as np
 import pandas as pd
 from altair_saver import save
 import os
+import importlib.util
+os.chdir('..') # this should always be '..' I think
+spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
+docopt = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(docopt)
 
+opt = docopt.docopt(__doc__)
 alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
-opt = docopt(__doc__)
 
 #extract the file name
 
