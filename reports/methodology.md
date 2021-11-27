@@ -33,10 +33,3 @@ The Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`p
 ### Room for improvement
 - It is noted that in our `process_raw.py` script, we used the `try-except` block to make the script runnable. The reason behind is to allow the script to load all files except for files with extension `.DS_Store`.  The `.DS_Store` files are automatically created by Mac OS X Finder in browsed directories.
 - In case more time to work on this is given, we expect to enhance the `process_raw.py` script without using the `try-except` block.
-
-
-## Data analysis
-To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the next section.
-
-We perform a statistical test and report the findings in the [results](results.ipynb) section. Finally, we discuss our analysis methods and limitations in the [conclusion](conclusion.md).
-
