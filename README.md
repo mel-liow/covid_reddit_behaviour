@@ -48,7 +48,7 @@ $ python download_datasets.py [<output_directory>]
 
 Using R:
 ```console
-$ R download_datasets.r [<output_directory>]
+$ Rscipt download_datasets.r [<output_directory>]
 ```
 
 2. Process the raw data by running the following script in the `/data` directory:
