@@ -28,6 +28,8 @@ Timeframe of datasets:
 
 More information can be found [here](https://zenodo.org/record/3941387#.YZl5BC1h1QL)
 
+## Report
+Our final report can be found [here](https://ubc-mds.github.io/covid_reddit_behaviour/introduction.html)
 
 ## Usage
 To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow.
