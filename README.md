@@ -41,8 +41,9 @@ conda env create -f env.yaml
 conda activate covid_reddit_behaviour
 ```
 
-1. Navigate to the `/data` directory and run either of the following scripts to download the dataset:  
+1. Navigate to the `/src` directory and run the following scripts: 
 
+1.1 Run either of the following scripts to download the dataset
 Using python:
 ```console
 $ python download_datasets.py [<output_directory>]
@@ -53,23 +54,23 @@ Using R:
 $ Rscipt download_datasets.r [<output_directory>]
 ```
 
-2. Process the raw data by running the following script in the `/data` directory:
+1.2. Process the raw data by running the following script:
 ```console
 $ python process_raw.py --in_dir='data/raw/' --out_dir='data/processed/'
 ```
 
-3. Run statistical tests by running the following script in the `/analysis` directory:
+1.3. Run statistical tests by running the following script:
 ```console
 $ python stat_tests.py --data_path='data/processed/' --output='analysis/stat_tests/stat_tests.csv'
 ```
 
-4. Create EDA diagrams by running the following script in the `/eda` directory:
+1.4. Create EDA diagrams by running the following script:
 ```console
 
 $ python eda_script.py --data_path='data/processed/' --output='eda/figures/'
 ```
 
-5. Build and view the report using Jupyter book from the root directory:
+2. Build and view the report using Jupyter book from the `root` directory:
 ```console
 jupyter-book build reports
 ```
