@@ -41,6 +41,13 @@ conda env create -f env.yaml
 conda activate covid_reddit_behaviour
 ```
 
+*Note for Windows users*:
+In addition to the environment setup above, you will be required to run the script below to ensure that `Altair` can save figures.
+
+```console
+npm install -g vega vega-cli vega-lite canvas
+```
+
 1. Run the following scripts from the project's root directory:
 
 1.1 Run either of the following scripts to download the dataset

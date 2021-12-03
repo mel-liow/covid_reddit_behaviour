@@ -4,10 +4,11 @@
 """
 This script performs exploratory data visualization on a given dataset
 
-Usage: eda/eda_script.py --data_path=<dir> --outputfile=<outputfile>
+Usage: eda/eda_script.py --data_path=<dir> --outputfile=<outputfile> [--run_tests=<run_tests>]
 Options:
 --data_path=<dir>            the dir where preprocessed data is stored
 --outputfile=<outputfile>         Specify the place to save the images.
+[--run_tests=<run_tests>]    Set to True, TRUE, Y, Yes, 1 to run tests and output test log 
 """
 
 # import relevant modules
@@ -50,7 +51,6 @@ def main(data_path, outputfile):
         df = pd.read_csv(data_path + '/' + file)
         #create output images name
         name = os.path.splitext(os.path.split(data_path+file)[1])[0]
-        print(name)
         name_hist = name + '_histogram.png'
         name_line = name + '_line.png'
         #get the distribution of the target feature
@@ -80,7 +80,6 @@ def histograms(data, outputfile, name_hist):
             y='count()')
     )
 
-    print(hist)
     #save the file
     save(hist, outputfile + name_hist)
 
@@ -110,5 +109,7 @@ def create_timeseries(data, outputfile, name_line):
 
 
 if __name__ == "__main__":
+    if opt["--run_tests"] in ('True', 'TRUE', 'Y', 'Yes', '1'):
+        module_test(opt["--data_path"], opt["--outputfile"])
     main(opt["--data_path"], opt["--outputfile"])
 
