@@ -15,14 +15,9 @@ Options:
 import pandas as pd
 from scipy.stats import ranksums
 import glob
-import importlib.util
-import os
-os.chdir('..') # this should always be '..' I think
-spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
-docopt = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(docopt)
+from docopt import docopt
 
-opt = docopt.docopt(__doc__)
+opt = docopt(__doc__)
 
 def main(data_path, output_file):
     """
@@ -45,7 +40,7 @@ def main(data_path, output_file):
     results = {}
     for i, file in enumerate(files):
         # analysis\preprocessing\*.csv
-        df = pd.read_csv(file)
+        df = pd.read_csv(data_path + '/' + file)
         pre = df.loc[df['period'] == 'pre']['substance_use_total']
         post = df.loc[df['period'] == 'post']['substance_use_total']
         test_statistic, p_val = ranksums(pre, post, alternative='two-sided')

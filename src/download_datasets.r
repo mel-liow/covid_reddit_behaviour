@@ -11,13 +11,13 @@ library(docopt)
 opt <- docopt(doc)
 
 main <- function(output_dir) {
-  conn <- file("files_to_download.txt",open="r")
+  conn <- file("src/files_to_download.txt",open="r")
   files = readLines(conn, warn=FALSE)
   for (file in files) {
     filename <- rev(strsplit(file, '/')[[1]])[1]
     print(paste0("downloading ", filename, "..."))
     if (is.null(output_dir)) {
-      output_dir = './raw'
+      output_dir = 'data/raw'
     }
     download.file(file, paste0(output_dir, "\\", filename))
     print(

@@ -19,13 +19,9 @@ import numpy as np
 import pandas as pd
 from altair_saver import save
 import os
-import importlib.util
-os.chdir('..') # this should always be '..' I think
-spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
-docopt = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(docopt)
+from docopt import docopt
 
-opt = docopt.docopt(__doc__)
+opt = docopt(__doc__)
 alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
@@ -51,7 +47,7 @@ def main(data_path, outputfile):
     
     for i, file in enumerate(files):
         # analysis\preprocessing\*.csv
-        df = pd.read_csv(file)
+        df = pd.read_csv(data_path + '/' + file)
         #create output images name
         name = os.path.splitext(os.path.split(data_path+file)[1])[0]
         print(name)
@@ -84,6 +80,7 @@ def histograms(data, outputfile, name_hist):
             y='count()')
     )
 
+    print(hist)
     #save the file
     save(hist, outputfile + name_hist)
 
