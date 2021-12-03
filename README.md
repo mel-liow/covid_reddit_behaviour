@@ -51,7 +51,7 @@ $ python src/download_datasets.py [<output_directory>]
 
 Or, using R:
 ```console
-$ Rscipt src/download_datasets.r [<output_directory>]
+$ Rscript src/download_datasets.r [<output_directory>]
 ```
 
 1.2. Process the raw data by running the following script:
