@@ -37,5 +37,4 @@ clean:
 	rm -rf eda/figures/*
 	rm -rf reports/_build/*
 	rm -rf reports/images/*
-	rm -rf docs/*
     
