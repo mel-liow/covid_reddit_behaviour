@@ -10,14 +10,14 @@ two period.
 in a given month. This aim to get an overview of how the feature varies with time. 
 ## Output plots
 ### Addiction
-![Addiction Histogram](images/addiction_hist.png)
-![Addiction Time Series](images/addiction_timeseries.png)
+![Addiction Histogram](images/addiction_processed_histogram.png)
+![Addiction Time Series](images/addiction_processed_line.png)
 ### Alcoholism
-![Alcoholism Histogram](images/alcoholism_hist.png)
-![Alcoholism Time Series](images/alcoholism_timeseries.png)
+![Alcoholism Histogram](images/alcoholism_processed_histogram.png)
+![Alcoholism Time Series](images/alcoholism_processed_line.png)
 ### Anxiety
-![Anxiety Histogram](images/anxiety_hist.png)
-![Anxiety Time Series](images/anxiety_timeseries.png)
+![Anxiety Histogram](images/anxiety_processed_histogram.png)
+![Anxiety Time Series](images/anxiety_processed_line.png)
 
 ## Results
 From the histogram above, pre COVID records is more than the post COVID records, results is not intuitive because we have only 3 months for
