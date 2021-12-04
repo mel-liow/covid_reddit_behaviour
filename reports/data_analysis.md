@@ -1,5 +1,5 @@
 # Data Analysis
-## Exploratory Data Analysis Summary
+## Exploratory Data Analysis
 In this section, we mainly focus on three sub-reddit dataset: `addiction`, `alcoholism` and `anxiety`, other datasets contains same column and can be analyzed
 in a same way. Three cleaned datasets contain both pre and post pandemic records, as well as the feature we mainly focus on:`substance_use_total`.
 
@@ -19,7 +19,7 @@ in a given month. This aim to get an overview of how the feature varies with tim
 ![Anxiety Histogram](images/anxiety_processed_histogram.png)
 ![Anxiety Time Series](images/anxiety_processed_line.png)
 
-## Results
+## Summary
 From the histogram above, pre COVID records is more than the post COVID records, results is not intuitive because we have only 3 months for
 post pandemic while 11 months for pre pandemic. For the time series plot, the records slumped at Nov, 2019. Despite of this, the count 
 appeared to increase after Jan, 2020 in all time series plots, especially for anxiety. 
