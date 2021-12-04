@@ -13,6 +13,7 @@ Options:
 """
 
 import pandas as pd
+import os
 from scipy.stats import ranksums
 import glob
 from docopt import docopt
@@ -34,9 +35,8 @@ def main(data_path, output_file):
     """
     # read the datasets
     # print(glob.glob(data_path + '/*.csv'))
-    preprocessed_data_files = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
-    files = [x for x in preprocessed_data_files]
-
+    files = [datafile.split(os.sep)[-1] for datafile in glob.glob(data_path + '/*.csv')]
+    
     results = {}
     for i, file in enumerate(files):
         # analysis\preprocessing\*.csv

@@ -19,7 +19,7 @@ main <- function(output_dir) {
     if (is.null(output_dir)) {
       output_dir = 'data/raw'
     }
-    download.file(file, paste0(output_dir, "\\", filename))
+    download.file(file, paste0(output_dir, "/", filename))
     print(
       paste0(
         which(files==file), 
