@@ -12,14 +12,9 @@ Options:
 
 import os
 import pandas as pd
-import importlib.util
+from docopt import docopt
 
-os.chdir('..') # this should always be '..' I think
-spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
-docopt = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(docopt)
-
-opt = docopt.docopt(__doc__)
+opt = docopt(__doc__)
 
 def main(in_dir, out_dir):
     print("Start data cleaning script")

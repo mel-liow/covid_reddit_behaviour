@@ -6,20 +6,13 @@ Usage: download_datasets.py [<output_dir>]
 Options:
 [<output_dir>]  Directory to which datasets should be downloaded [default: './data/raw']
 """ 
-import importlib.util
-import os
 import requests
+from docopt import docopt
 
-os.chdir('..')
-print(os.getcwd())
-spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
-docopt = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(docopt)
-
-opt = docopt.docopt(__doc__)
+opt = docopt(__doc__)
 
 def main(output_dir):
-    with open('data/files_to_download.txt') as f:
+    with open('src/files_to_download.txt') as f:
         files = f.read().splitlines()
     
     number_of_files = len(files)
