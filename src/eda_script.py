@@ -4,10 +4,11 @@
 """
 This script performs exploratory data visualization on a given dataset
 
-Usage: eda/eda_script.py --data_path=<dir> --outputfile=<outputfile>
+Usage: eda/eda_script.py --data_path=<dir> --outputfile=<outputfile> [--run_tests=<run_tests>]
 Options:
 --data_path=<dir>            the dir where preprocessed data is stored
 --outputfile=<outputfile>         Specify the place to save the images.
+[--run_tests=<run_tests>]    Set to True, TRUE, Y, Yes, 1 to run tests and output test log 
 """
 
 # import relevant modules
@@ -19,13 +20,9 @@ import numpy as np
 import pandas as pd
 from altair_saver import save
 import os
-import importlib.util
-os.chdir('..') # this should always be '..' I think
-spec = importlib.util.spec_from_file_location("docopt", "docopt.py")
-docopt = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(docopt)
+from docopt import docopt
 
-opt = docopt.docopt(__doc__)
+opt = docopt(__doc__)
 alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
@@ -46,15 +43,13 @@ def main(data_path, outputfile):
     if not os.path.exists(os.path.dirname(outputfile)):
         os.makedirs(os.path.dirname(outputfile))
     #load the data sets     
-    preprocessed_data_files = [datafile.split('\\')[-1] for datafile in glob.glob(data_path + '/*.csv')] # '..\..\data\*.csv'
-    files = [x for x in preprocessed_data_files]
+    files = [datafile.split(os.sep)[-1] for datafile in glob.glob(data_path + '/*.csv')]
     
     for i, file in enumerate(files):
         # analysis\preprocessing\*.csv
-        df = pd.read_csv(file)
+        df = pd.read_csv(data_path + '/' + file)
         #create output images name
         name = os.path.splitext(os.path.split(data_path+file)[1])[0]
-        print(name)
         name_hist = name + '_histogram.png'
         name_line = name + '_line.png'
         #get the distribution of the target feature
@@ -113,5 +108,7 @@ def create_timeseries(data, outputfile, name_line):
 
 
 if __name__ == "__main__":
+    if opt["--run_tests"] in ('True', 'TRUE', 'Y', 'Yes', '1'):
+        module_test(opt["--data_path"], opt["--outputfile"])
     main(opt["--data_path"], opt["--outputfile"])
 
