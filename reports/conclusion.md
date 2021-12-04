@@ -2,7 +2,7 @@
 
 We conducted a statistical analysis on data gathered from multiple subreddits to answer an inferential question on whether the number of substance abuse references increased during the 2020 COVID-19 pandemic on Reddit.
 
-We discuss limitations of our analysis in our [results](results.md) and include an examination of our datasets in the [data analysis](data_analyis).
+We discuss limitations of our analysis in our [results](results.md) and include an examination of our datasets in the [data analysis](data_analysis.md).
 
 The hypothesis tests for each subreddit are presented in a [table](results.md) and shows the different subreddits along with the p-values. p-values less than 0.05 indicate that there is statistical evidence that the median number of references to substance abuse has changed post-COVID.
 
