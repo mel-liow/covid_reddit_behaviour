@@ -2,7 +2,7 @@ name: Publish Dockerfile on DockerHub
 on: 
   push: 
     branches:
-      - master
+      - main
     paths: 
       - 'Dockerfile'
 jobs:
