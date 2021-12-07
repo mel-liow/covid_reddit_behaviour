@@ -86,7 +86,7 @@ The workflow of our analysis is illustrated in the flowchart below.
 ![Flowchart](flowchart.png)
 
 ### Makefile dependency diagram
-![Makefile dependencies](makefile.png)
+![Makefile dependencies](Makefile.png)
 
 ## License
 The source code for the site is licensed under the MIT license, which you can find [here](https://github.com/UBC-MDS/covid_reddit_behaviour/blob/main/LICENSE).
