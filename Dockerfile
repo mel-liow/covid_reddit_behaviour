@@ -21,3 +21,4 @@ RUN conda install --quiet -y -c conda-forge \
 RUN pip install \
     "jupyter-book==0.12.*" \
     "altair-data-server==0.4.*"
+    
