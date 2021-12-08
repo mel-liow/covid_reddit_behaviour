@@ -32,8 +32,39 @@ More information can be found [here](https://zenodo.org/record/3941387#.YZl5BC1h
 Our final report can be found [here](https://ubc-mds.github.io/covid_reddit_behaviour/introduction.html)
 
 ## Usage
-To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow.
-Please run the following commands at the command line/terminal after cloning the GitHub repository to your machine.
+Please clone the GitHub repository to your machine.
+To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided as well as the commands required to fetch the relevant data. There are also several ways that you can run the analysis - this will be detailed below.
+
+
+### 1. Docker 
+
+Please make sure you have a working set up of Docker on your pc.
+
+**Mac Users**. 
+Run the following command at the command line/terminal from the root directory of this project:  
+```console
+docker run --rm -v /$(pwd):/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour all
+```
+Note: For M1 users, please add the flag `--platform linux/amd64`. 
+
+To delete the results, please run the following commands at the command line/terminal from the root directory of this project:
+```console
+docker run --rm -v /$(pwd):/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour clean
+```
+
+**Window Users** 
+ 
+Run the following command at the command line/terminal from the root directory of this project:  
+```console
+docker run --rm -it -v <Project_Path>:/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour all
+```
+To delete the results, please run the following commands at the command line/terminal from the root directory of this project:
+```console
+docker run --rm -it -v <Project_Path>:/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour clean
+```
+
+### 2. `Make` 
+To replicate the analysis without Docker you can create a virtual conda environment as follows:
 
 Install our conda environment:
 ```console
@@ -47,6 +78,20 @@ In addition to the environment setup above, you will be required to run the scri
 ```console
 npm install -g vega vega-cli vega-lite canvas
 ```
+You can then run the following command at the command line/terminal from the root directory of the project:
+```console
+make all
+```
+To reset the repo to a clean state, run the following from the root directory of the project:
+```console
+make clean
+```
+
+#### Makefile dependency diagram
+![Makefile dependencies](Makefile.png)
+
+
+### 3. Running scripts manually
 
 1. Run the following scripts from the project's root directory:
 
@@ -85,8 +130,7 @@ jupyter-book build reports
 The workflow of our analysis is illustrated in the flowchart below.
 ![Flowchart](flowchart.png)
 
-### Makefile dependency diagram
-![Makefile dependencies](Makefile.png)
+
 
 ## License
 The source code for the site is licensed under the MIT license, which you can find [here](https://github.com/UBC-MDS/covid_reddit_behaviour/blob/main/LICENSE).
