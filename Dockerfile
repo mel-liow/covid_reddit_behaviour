@@ -2,11 +2,19 @@
 # Created: 2021-12-07
 # Last updated: 2021-12-07
 
-# Copyright (c) Jupyter Development Team.
-ARG BASE_CONTAINER=jupyter/minimal-notebook
-FROM $BASE_CONTAINER
+FROM continuumio/miniconda3
 
-# Install Python 3 packages
+# Update package list
+RUN apt-get update -y
+
+# Install development tools
+RUN apt-get install gcc python3-dev chromium-driver -y
+
+# Install GNU make
+RUN apt-get install make -y
+
+# Install Python packages
+
 RUN conda install --quiet -y -c conda-forge \
     "numpy=1.21.*" \
     "pandas=1.3.*" \
@@ -19,7 +27,5 @@ RUN conda install --quiet -y -c conda-forge \
     "requests=2.24.*"
 
 RUN pip install \
-    "jupyter-book==0.12.*" \
-    "altair-data-server==0.4.*"
-    
-USER root    
+    "altair-data-server==0.4.*" \
+    "jupyter-book==0.12.*"
