@@ -49,7 +49,7 @@ This section summarizes the most important points, more details can be found in 
 
 We will investigate and respond to all complaints. The DSCI 522 Group 20 Code of Conduct Committee and the DSCI 522 Group 20 Steering Committee (if involved) will protect the identity of the reporter, and treat the content of complaints as confidential (unless the reporter agrees otherwise).
 
-In case of severe and obvious breaches, e.g. personal threat or violent, sexist or racist language, we will immediately disconnect the originator from DSCI 522 Group 20 communication channels; please see the manual for details.
+In case of severe and obvious breaches, e.g. personal threat or violent, sexist or racist language, we will immediately disconnect the originator from DSCI 522 Group 20 communication channels; please see the manual for details or project team members can be reached at mel.liow.94@gmail.com or thungoct283@gmail.com.
 
 In cases not involving clear severe and obvious breaches of this Code of Conduct the process for acting on any received Code of Conduct violation report will be:
 
