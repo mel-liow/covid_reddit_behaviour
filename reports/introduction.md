@@ -12,8 +12,3 @@ We aim to find the impact of COVID-19 on mental health support groups by looking
 
 This report will introduce the data set and take the reader through the data pre-processing, analysis and statistical tests in order to answer the question of interest.
 Each section of this report will detail the analysis and methods used, and additionally reference the required software libraries. The results can be found under the results section with key findings discussed further in the conclusion.
-
-## Data analysis
-To help familiarise the reader with the data, we present a more in depth analysis of the features and highlight any interesting trends. This can be found in the next section.
-
-We perform a statistical test and report the findings in the [results](results.ipynb) section. Finally, we discuss our analysis methods and further work in the [conclusion](conclusion.md).

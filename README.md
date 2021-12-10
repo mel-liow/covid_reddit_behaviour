@@ -19,7 +19,7 @@ For the first week, we conducted exploratory data analysis on 30 datasets (15 me
 
 ## Dataset
 
-The datasets we used contain reddit user posts and text-derived metrics (e.g. the `substance_use_total` feature) from 15 mental health subreddits: r/EDAnonymous, r/addiction, r/alcoholism, r/adhd, r/anxiety, r/autism, r/bipolarreddit, r/bpd, r/depression, r/healthanxiety, r/lonely, r/ptsd, r/schizophrenia, r/socialanxiety, and r/suicidewatch.
+The datasets we used contain reddit user posts and text-derived metrics from 15 mental health subreddits: r/EDAnonymous, r/addiction, r/alcoholism, r/adhd, r/anxiety, r/autism, r/bipolarreddit, r/bpd, r/depression, r/healthanxiety, r/lonely, r/ptsd, r/schizophrenia, r/socialanxiety, and r/suicidewatch. We select only _one_ of the text-derived metrics available in this dataset - **substance_abuse_total** - as the focus of our study.
 
 Timeframe of datasets: 
 
