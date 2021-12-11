@@ -34,6 +34,7 @@ Our final report can be found [here](https://ubc-mds.github.io/covid_reddit_beha
 ## Usage
 Please clone the GitHub repository to your machine.
 To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided as well as the commands required to fetch the relevant data. There are also several ways that you can run the analysis - this will be detailed below.
+The estimated time to run this project is 30 mininutes. 
 
 
 ### 1. Docker 
