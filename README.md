@@ -40,7 +40,7 @@ To replicate the analysis, all relevant scripts will be made available in this G
 ### 1. Docker 
 
 Please make sure you have a working set up of Docker on your pc.
-The estimated time to download data and complete the analysis is 30 mininutes.
+The estimated time to download data and complete the analysis is 30 minutes.
 
 **Mac Users**. 
 Run the following command at the command line/terminal from the root directory of this project:  
