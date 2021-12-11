@@ -39,6 +39,8 @@ Each observation is a Reddit user's post - a message written on a specific subre
 |domestic_stress_total|count of mentions of domestic stress in post|
 |suicidality_total|count of mentions of suicide in post|
 |punctuation|count of punctuation in post|
+|LIWC-based metrics|Linguistic Inquiry and Word Count - a metric derived from the degree to which various categories of words are used in a text|
+|TF-IDF-based metrics| Term frequency–inverse document frequency - a statistic that is tries to reflect how important a word is in a piece of text|
 
 The feature extractions are as follows (n is the number of columns):
 - LIWC (n=62);
