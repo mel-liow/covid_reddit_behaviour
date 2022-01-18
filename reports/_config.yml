@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Covid Reddit Behaviour
-author: Luke Collins, Mel Liow, Nobby Nguyen, Maeve Shi
+title: COVID Reddit Behaviour
+author: Mel Liow
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
