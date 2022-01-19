@@ -2,7 +2,7 @@
 
 In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and conduct an exploratory data analysis (EDA) on several subreddit datasets.
 ## Data set
-The datasets, obtained from a public data resource, is called the [Reddit mental health dataset](https://zenodo.org/record/3941387#.YZl5BC1h1QL), and has been previously processed and organised by Low et al {cite:p}`low2020natural`. They provide two CSV files for each period - pre (2018-2019) and post (2019-2020) pandemic - for 15 different subreddits. 
+The datasets, obtained from a public data resource, is called the [Reddit mental health dataset](https://zenodo.org/record/3941387#.YZl5BC1h1QL), and has been previously processed and organised by Low et al {cite:p}`low2020natural`. The data includes Reddit posts from 826,961 unique users from 2018 to 2020. They provide two CSV files for each period - pre (2018-2019) and post (2019-2020) pandemic - for 15 different subreddits. 
 
 Each observation is a Reddit user's post - a message written on a specific subreddit - which has been processed to extract features that are common in NLP. 
 
@@ -38,8 +38,9 @@ Our final processed data sets contained the following features:
 
 
 ## Hypothesis testing using Wilcoxon rank-sum statistic
-For each subreddit data set we computed the Wilcoxon rank-sum statistic and compared the median number of references to substance abuse per Reddit post.
 
-The Wilcoxon rank-sum statistic (also referred to as the Mann-Whitney-Wilcoxon rank-sum) 
+Deciding which test statistic to use when performing hypothesis tests depends on the distribution of the data and its characteristics. Given that the distribution of substance_use_total is skewed we decided to use the median as oppose to the mean for our test estimator.
 
-Given the data imbalance of each data set where there are unequal-sized samples for each _period_, the Wilcoxon rank-sum statistic lends itself to be more a better test statistic.
+Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection. The data for _pre_ pandemic posts spans 11 months whereas the data at the point of collection only makes 3 months of _post_ pandemic posts available for use. The unequal-sized data sets for each _period_ therefore allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.
+
+We performed hypothesis tests with a significance level of $\alpha = 0.05$, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.
