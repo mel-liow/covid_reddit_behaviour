@@ -2,28 +2,21 @@
 
 The COVID-19 pandemic has affected all segments of the world's population. In addition to the health impacts related to the virus, it is apparent that much of the world has experienced traumatic stress related to human loss, unemployment, social isolation and global fear. The collateral economic and social impacts have caused devastating repurcussions on the mental health of many around the world. Moreover, the pandemic has disrupted critical mental health services and, according to the World Health Organisation (WHO), demand for mental health is continually increasing {cite:p}`10.1371/journal.pone.0244809`. 
 
-## Paragraph on suicide and mental health issues
-Suicide accounts for approximately 800,000 deaths per year globally. 
+Suicide accounts for approximately 700,000 deaths per year globally. It is estimated that 5.0% of adults suffer from depression and mental health disorders such as bipolar disorder and Schizophrenia affects 70 million people worldwide. Substance abuse is also on the rise. Most recently, the European Monitoring Centre for Drugs and Drug Addiction and the US National Institute on Drug Abuse have raised concerns about the increasing number of substance use disorders due to COVID-19 {cite:p}`palmer2012prevalence`. Given that increased alcohol consuption has been extensively documented during other crises, particularly among people with anxiety and depression, it is unsuprising that many substance abuse charities and national governing bodies have experienced strain in their health resources[CITE].
 
+In light of World Mental Health day (Oct 2020), WHO released a publication highlighting the urgent need to increase funding for mental health services. According to this publication, 93% of countries worldwide has had their mental health services disrupted or halted [CITE]. The survey, conducted in 130 countries, provides a global data set showing the impact of COVID-19 on access to these services which include school mental health programmes, psychotherapy and counselling, overdoes prevention programmes and access to medication for mental, neurological and substance use (MNS) disorders.
 
-## Paragraph on restricted services
-In light of World Mental Heatlh day (Oct 2020), WHO released a publication highlighting the urgent need to increase funding for mental health services. According to this publication, 93% of countries worldwide has had their mental health services disrupted or halted. The survey, conducted in 130 countries, provides a global data set showing the impact of COVID-19 on access to these services which include school mental health programmes, psychotherapy and counselling, overdoes prevention programmes and access to medication for mental, neurological and substance use (MNS) disorders.
+Additionally, with national lockdowns and mandated periods of social isolation, it comes as no surprise that many have turned to social media as a medium for social interaction and expressing their thoughts. This influx in online engagement (such as upvoting, downvoting, or user comments) provides these platforms with an abundance of data about the users and their personal information[CITE].
 
-## Link to online resources
-It comes as no surprise that levels of 
-Given the lack of resources, many have turned to social media as a medium for people to talk..
+This report aims to analyse which subgroups of online users have increased their frequency of mentions of substance abuse in their social media posts on Reddit.
+Reddit is ranked the 9th most popular social media app in the US. The platform provides focused forums (subreddits) where users can subscribe and post anonymously. Public commentary posted to mental health support groups such as the subreddit '_r/SuicideWatch_', can help to capture real-time langauge from users as they share their thoughts and experiences online.
 
+Here we aim to find the impact of COVID-19 on mental health support groups by looking at Reddit data 'before' and 'after' the pandemic (the dataset and time frames will be further discussed in the methodology). Specifically, we aim to focus on the question:
+> Has frequency of explicit description of substance abuse in mental-health-oriented subreddits changed over the pandemic?
 
-## The problem - Reddit
-Characterising these impacts is critical to motivate and inform the provision of appropriate therapeutic responses. This report aims to analyse which subgroups of online users have increased their frequency of mentions of substance abuse in their social media posts on Reddit.
-Reddit is ranked the 9th most popular social media app in the US. The platform provides focused forums (subreddits) where users can subscribe and post anonymously. Public commentary posted to mental health support groups such as the subreddit 'r/SuicideWatch', can help to capture real-time langauge from users as they share their thoughts and experiences online.
+There are an abundance of papers that explore the use of natural language processing to reveal mental health states of social media users. Natural language processing (NLP) is a branch of computer science and artificial intellignce that allows computers to understand the contents of text documents. An example use of natural language processing is sentiment analysis which can analyse and identify subjective information and deduce emotional states.
 
-Here we aim to find the impact of COVID-19 on mental health support groups by looking at Reddit data 'before' and 'after' the pandemic (the dataset will be further discussed in the methodology section). Specifically, we aim to focus the question:
-> Has frequency of explicit description of substance abuse in mental-health-oriented subreddits changed over the pandemic.
+This processing technique has been used before on Reddit data to characterise change during the pandemic. In particular, a paper by Daniel M. Low et al, reports the subgroup '_r/HealthAnxiety_' experiencing spikes of posts about COVID-19 early on in January 2020, approximately 2 months before other support groups started posting about the pandemic. They found that the more users posted about COVID-19, the more linguistically similar (less distant) the mental health support groups became to '_r/HealthAnxiety_' {cite:p}`info:doi/10.2196/22635`. 
 
-## The paper and introduction to the stats and analysis
-There are numerous papers that explore the use of natural language processing to reveal mental health states of social media users {cite:p}`info:doi/10.2196/22635`. Many use sentiment analysis to analyse changes and trends in language features during the pandemic
+While this report does not investigate the sentiment of the processed text data, we instead aim to conduct an analysis that provides guidance in identifying subsets of users through the means of statistical hypothesis testing. We also focus our report on the use of substance abuse, more specifically, the total of substance abuse references in Reddit posts. By analysing this data, we can deduce which groups of users have posted more about substance abuse over time. In doing so we help to contribute to characterising the impact of crisis on subsets of users which is critical to motivate and inform the provision of appropriate therapeutic responses.
 
-
-## Outcomes - Aims of the paper - 
-- to further provide a statistical method to analyse online trends

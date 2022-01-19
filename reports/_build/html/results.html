@@ -228,144 +228,105 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="results">
 <h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<p>For each subreddit-specific dataset of processed data we computed Wilcoxon rank-sum statistic (also referred to as the Mann-Whitney-Wilcoxon rank-sum), comparing the difference in median number of references to substance abuse per reddit-post in the ‘pre-COVID’ and ‘post-COVID’ datasets. In our test we employ Scipy stats packages’ <code class="docutils literal notranslate"><span class="pre">ranksums</span></code> method <span id="id1">[<a class="reference internal" href="references.html#id11">VGO+20</a>]</span>.</p>
-<p>According to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html">Scipy documentation</a>:</p>
-<blockquote>
-<div><p>We can test the hypothesis that two independent unequal-sized samples are drawn from the same distribution with computing the Wilcoxon rank-sum statistic.</p>
-</div></blockquote>
-<p>And according to <a class="reference external" href="https://www.isixsigma.com/tools-templates/hypothesis-testing/making-sense-mann-whitney-test-median-comparison/">this ISIXSIGMA article</a></p>
-<blockquote>
-<div><p>The Mann-Whitney test compares the medians from two populations and works when the Y variable is continuous, discrete-ordinal or discrete-count, and the X variable is discrete with two attributes.</p>
-</div></blockquote>
-<p>While this test may not exactly fit our use case for reasons unknown to us - we do not have any better guidance at this point as to choosing a more well-suited test for the purpose of measuring a statistically significant difference in medians between these two datasets.</p>
 <p>Using the Wilcoxon rank-sum test, we can set up our hypotheses for this test as follows:</p>
-<p><span class="math notranslate nohighlight">\(H_0:\)</span> median number of references to substance abuse per reddit-post is the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
-<p><span class="math notranslate nohighlight">\(H_a:\)</span> median number of references to substance abuse per reddit-post is <strong>not</strong> the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p><span class="math notranslate nohighlight">\(H_0:\)</span> The median number of references to substance abuse per reddit-post is the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p><span class="math notranslate nohighlight">\(H_a:\)</span> The median number of references to substance abuse per reddit-post is <strong>not</strong> the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p>Our results for each subreddit is as follows:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_93b40_">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>subreddit_topic</th>
-      <th>test_statistic</th>
-      <th>p_value</th>
+    <tr>
+      <th class="col_heading level0 col0" >Subreddit</th>
+      <th class="col_heading level0 col1" >Test statistic</th>
+      <th class="col_heading level0 col2" >p value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>bipolarreddit</td>
-      <td>-0.692095</td>
-      <td>4.888776e-01</td>
+      <td id="T_93b40_row0_col0" class="data row0 col0" >bipolarreddit</td>
+      <td id="T_93b40_row0_col1" class="data row0 col1" >-0.692095</td>
+      <td id="T_93b40_row0_col2" class="data row0 col2" >0.488878</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>EDAnonymous</td>
-      <td>1.922717</td>
-      <td>5.451560e-02</td>
+      <td id="T_93b40_row1_col0" class="data row1 col0" >EDAnonymous</td>
+      <td id="T_93b40_row1_col1" class="data row1 col1" >1.922717</td>
+      <td id="T_93b40_row1_col2" class="data row1 col2" >0.054516</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>socialanxiety</td>
-      <td>0.990075</td>
-      <td>3.221376e-01</td>
+      <td id="T_93b40_row2_col0" class="data row2 col0" >socialanxiety</td>
+      <td id="T_93b40_row2_col1" class="data row2 col1" >0.990075</td>
+      <td id="T_93b40_row2_col2" class="data row2 col2" >0.322138</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>alcoholism</td>
-      <td>-1.407757</td>
-      <td>1.592032e-01</td>
+      <td id="T_93b40_row3_col0" class="data row3 col0" >alcoholism</td>
+      <td id="T_93b40_row3_col1" class="data row3 col1" >-1.407757</td>
+      <td id="T_93b40_row3_col2" class="data row3 col2" >0.159203</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>lonely</td>
-      <td>-2.041229</td>
-      <td>4.122808e-02</td>
+      <td id="T_93b40_row4_col0" class="data row4 col0" >lonely</td>
+      <td id="T_93b40_row4_col1" class="data row4 col1" >-2.041229</td>
+      <td id="T_93b40_row4_col2" class="data row4 col2" >0.041228</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>healthanxiety</td>
-      <td>0.184029</td>
-      <td>8.539905e-01</td>
+      <td id="T_93b40_row5_col0" class="data row5 col0" >healthanxiety</td>
+      <td id="T_93b40_row5_col1" class="data row5 col1" >0.184029</td>
+      <td id="T_93b40_row5_col2" class="data row5 col2" >0.853990</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>ptsd</td>
-      <td>-0.551019</td>
-      <td>5.816208e-01</td>
+      <td id="T_93b40_row6_col0" class="data row6 col0" >ptsd</td>
+      <td id="T_93b40_row6_col1" class="data row6 col1" >-0.551019</td>
+      <td id="T_93b40_row6_col2" class="data row6 col2" >0.581621</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>suicidewatch</td>
-      <td>1.643746</td>
-      <td>1.002287e-01</td>
+      <td id="T_93b40_row7_col0" class="data row7 col0" >suicidewatch</td>
+      <td id="T_93b40_row7_col1" class="data row7 col1" >1.643746</td>
+      <td id="T_93b40_row7_col2" class="data row7 col2" >0.100229</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>addiction</td>
-      <td>0.481856</td>
-      <td>6.299085e-01</td>
+      <td id="T_93b40_row8_col0" class="data row8 col0" >addiction</td>
+      <td id="T_93b40_row8_col1" class="data row8 col1" >0.481856</td>
+      <td id="T_93b40_row8_col2" class="data row8 col2" >0.629908</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>bpd</td>
-      <td>-0.454428</td>
-      <td>6.495209e-01</td>
+      <td id="T_93b40_row9_col0" class="data row9 col0" >bpd</td>
+      <td id="T_93b40_row9_col1" class="data row9 col1" >-0.454428</td>
+      <td id="T_93b40_row9_col2" class="data row9 col2" >0.649521</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>autism</td>
-      <td>1.358547</td>
-      <td>1.742903e-01</td>
+      <td id="T_93b40_row10_col0" class="data row10 col0" >autism</td>
+      <td id="T_93b40_row10_col1" class="data row10 col1" >1.358547</td>
+      <td id="T_93b40_row10_col2" class="data row10 col2" >0.174290</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>schizophrenia</td>
-      <td>0.246796</td>
-      <td>8.050664e-01</td>
+      <td id="T_93b40_row11_col0" class="data row11 col0" >schizophrenia</td>
+      <td id="T_93b40_row11_col1" class="data row11 col1" >0.246796</td>
+      <td id="T_93b40_row11_col2" class="data row11 col2" >0.805066</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>adhd</td>
-      <td>2.955800</td>
-      <td>3.118593e-03</td>
+      <td id="T_93b40_row12_col0" class="data row12 col0" >adhd</td>
+      <td id="T_93b40_row12_col1" class="data row12 col1" >2.955800</td>
+      <td id="T_93b40_row12_col2" class="data row12 col2" >0.003119</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>depression</td>
-      <td>1.693505</td>
-      <td>9.035944e-02</td>
+      <td id="T_93b40_row13_col0" class="data row13 col0" >depression</td>
+      <td id="T_93b40_row13_col1" class="data row13 col1" >1.693505</td>
+      <td id="T_93b40_row13_col2" class="data row13 col2" >0.090359</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>anxiety</td>
-      <td>6.492918</td>
-      <td>8.418971e-11</td>
+      <td id="T_93b40_row14_col0" class="data row14 col0" >anxiety</td>
+      <td id="T_93b40_row14_col1" class="data row14 col1" >6.492918</td>
+      <td id="T_93b40_row14_col2" class="data row14 col2" >0.000000</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
-<p>Given we set a standard threshold <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> for statistical significance, the conclusions we may be able to draw from these results are:</p>
-<ul class="simple">
-<li><p>r/adhd and r/lonely saw a statistically significant difference between median number of references to substance abuse per reddit-post when comparing the ‘pre-COVID’ and ‘post-COVID’ datasets</p></li>
-<li><p>the remaining subreddits tested showed no statistically significant difference between median number of references to substance abuse per reddit-post when comparing the ‘pre-COVID’ and ‘post-COVID’ datasets.</p></li>
-</ul>
+<p>We set a standard threshold <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> for statistical significance to compare the p-values for each subreddit.
+We concluded that <em>r/adhd</em> and <em>r/lonely</em> saw a stistically significant difference between median number of references to substance abuse per reddit-post when comparing the ‘pre-COVID’ and ‘post-COVID’ datasets.
+The remaining subreddits tested showed no statistically significant difference between median number of references to substance abuse per reddit-post when comparing the ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
 </div>
 
     <script type="text/x-thebe-config">

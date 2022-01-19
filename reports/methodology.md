@@ -35,9 +35,7 @@ Our final processed data sets contained the following features:
 
 ## Data Analysis
 
-
-
-## Hypothesis testing using Wilcoxon rank-sum statistic
+[pic of eda to show distribution of data for a few subreddits]
 
 Deciding which test statistic to use when performing hypothesis tests depends on the distribution of the data and its characteristics. Given that the distribution of substance_use_total is skewed we decided to use the median as oppose to the mean for our test estimator.
 

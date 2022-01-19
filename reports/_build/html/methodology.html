@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -210,26 +212,14 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-cleaning-transformation">
-   Data cleaning/transformation
+  <a class="reference internal nav-link" href="#data-processing">
+   Data processing
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-cleaning-steps">
-     Data Cleaning Steps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-engineering">
-     Feature Engineering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#room-for-improvement">
-     Room for improvement
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data Analysis
+  </a>
  </li>
 </ul>
 
@@ -244,52 +234,48 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="methodology">
 <h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h1>
-<p>In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and then conduct an exploratory data analysis (eda) on several Reddit datasets which is described below.</p>
+<p>In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and conduct an exploratory data analysis (EDA) on several subreddit datasets.</p>
 <div class="section" id="data-set">
 <h2>Data set<a class="headerlink" href="#data-set" title="Permalink to this headline">¶</a></h2>
-<p>The datasets were obtained from <a class="reference external" href="https://zenodo.org/record/3941387#.YZl5BC1h1QL">Reddit mental health dataset</a>, a dataset processed and organised by Low et al <span id="id1">[<a class="reference internal" href="references.html#id7">LRT+20</a>]</span>. They provide us with two CSV files, for each period (pre and post pandemic), for 15 different subreddits.</p>
-<p>Each observation is a Reddit user’s post - a message written on a specific subreddit - which has been processed to extract features that are common in natural language processing.</p>
+<p>The datasets, obtained from a public data resource, is called the <a class="reference external" href="https://zenodo.org/record/3941387#.YZl5BC1h1QL">Reddit mental health dataset</a>, and has been previously processed and organised by Low et al <span id="id1">[<a class="reference internal" href="references.html#id8">LRT+20b</a>]</span>. The data includes Reddit posts from 826,961 unique users from 2018 to 2020. They provide two CSV files for each period - pre (2018-2019) and post (2019-2020) pandemic - for 15 different subreddits.</p>
+<p>Each observation is a Reddit user’s post - a message written on a specific subreddit - which has been processed to extract features that are common in NLP.</p>
 <p>The feature extractions are as follows (n is the number of columns):</p>
 <ul class="simple">
-<li><p>LIWC (n=62);</p></li>
-<li><p>sentiment analysis (n=4);</p></li>
-<li><p>basic word and syllable counts (n=8);</p></li>
-<li><p>punctuation (n=1);</p></li>
-<li><p>readability metrics (n=9);</p></li>
-<li><p>term frequency–inverse document frequency (TF-IDF) ngrams (256-1024) to capture words and phrases that characterize specific posts;</p></li>
-<li><p>manually built lexicons about suicidality (n=1), economic stress (n=1), isolation (n=1), substance use (n=1), domestic stress (n=1), and guns (n=1).</p></li>
+<li><p>Linguistic inquiry and word count (LIWC) (n=62);</p></li>
+<li><p>Sentiment analysis (n=4);</p></li>
+<li><p>Basic word and syllable counts (n=8);</p></li>
+<li><p>Punctuation (n=1);</p></li>
+<li><p>Readability metrics (n=9);</p></li>
+<li><p>Term frequency–inverse document frequency (TF-IDF) ngrams (256-1024) to capture words and phrases that characterize specific posts;</p></li>
+<li><p>Manually built lexicons about suicidality (n=1), economic stress (n=1), isolation (n=1), substance use (n=1), domestic stress (n=1), and guns (n=1).</p></li>
 </ul>
 <p>Alongside these features include:</p>
 <ul class="simple">
-<li><p>author (Reddit user name)</p></li>
+<li><p>Author (Reddit user name)</p></li>
+<li><p>Date</p></li>
+<li><p>Post</p></li>
+</ul>
+</div>
+<div class="section" id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
+<p>We used the Python programming language <span id="id2">[<a class="reference internal" href="references.html#id11">pyp</a>]</span> and the Pandas library <span id="id3">[<a class="reference internal" href="references.html#id9">pdt20</a>]</span> to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the ‘pre’ and ‘post’ pandemic data sets and introduced a new column <em>period</em> to distinguish between the two time frames. This helped to represent the data better and allows us to easily compare the timeframes when conducting the exploratory analysis.</p>
+<p>We selected one of the text-derived metrics available in this dataset, <em>substance_abuse_total</em>, as the focus of our study. This value is calculated as number of references to substance abuse in a Reddit user’s post and is a feature that we will use to compare across the ‘pre’ and ‘post’ pandemic datasets for each subreddit.</p>
+<p>Our final processed data sets contained the following features:</p>
+<ul class="simple">
+<li><p>author</p></li>
 <li><p>date</p></li>
+<li><p>subreddit</p></li>
 <li><p>post</p></li>
+<li><p>period</p></li>
+<li><p>substance_use_total</p></li>
 </ul>
 </div>
-<div class="section" id="data-cleaning-transformation">
-<h2>Data cleaning/transformation<a class="headerlink" href="#data-cleaning-transformation" title="Permalink to this headline">¶</a></h2>
-<p>In order to answer the question “How has the substance use increased over the pandemic?”, the feature <code class="docutils literal notranslate"><span class="pre">substance_use_total</span></code> is selected as the target feature, and the data is cleaned to focus exclusively on this feature.</p>
-<p>The Python programming language <span id="id2">[<a class="reference internal" href="references.html#id10">pyp</a>]</span> and the Pandas library <span id="id3">[<a class="reference internal" href="references.html#id8">pdt20</a>]</span> were used to perform the data cleaning process.</p>
-<div class="section" id="data-cleaning-steps">
-<h3>Data Cleaning Steps<a class="headerlink" href="#data-cleaning-steps" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Combine the <code class="docutils literal notranslate"><span class="pre">pre</span></code> and <code class="docutils literal notranslate"><span class="pre">post</span></code> datasets into one dataset.</p></li>
-<li><p>Filter the dataset to keep only the columns of interest, including <code class="docutils literal notranslate"><span class="pre">subreddit</span></code>, <code class="docutils literal notranslate"><span class="pre">author</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span></code>, and <code class="docutils literal notranslate"><span class="pre">substance_use_total</span></code>.</p></li>
-</ul>
-</div>
-<div class="section" id="feature-engineering">
-<h3>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>We apply a simple method by adding a new feature <code class="docutils literal notranslate"><span class="pre">period</span></code> to indicate the timeframe of the posts (before or after the pandemic). This helps to represent the data better and to compare the timeframes more easily in later parts of this report.</p></li>
-</ul>
-</div>
-<div class="section" id="room-for-improvement">
-<h3>Room for improvement<a class="headerlink" href="#room-for-improvement" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>It is noted that in our <code class="docutils literal notranslate"><span class="pre">process_raw.py</span></code> script, we used the <code class="docutils literal notranslate"><span class="pre">try-except</span></code> block to make the script runnable. The reason behind is to allow the script to load all files except for files with extension <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code>.  The <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> files are automatically created by Mac OS X Finder in browsed directories.</p></li>
-<li><p>In case more time to work on this is given, we expect to enhance the <code class="docutils literal notranslate"><span class="pre">process_raw.py</span></code> script without using the <code class="docutils literal notranslate"><span class="pre">try-except</span></code> block.</p></li>
-</ul>
-</div>
+<div class="section" id="data-analysis">
+<h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>[pic of eda to show distribution of data for a few subreddits]</p>
+<p>Deciding which test statistic to use when performing hypothesis tests depends on the distribution of the data and its characteristics. Given that the distribution of substance_use_total is skewed we decided to use the median as oppose to the mean for our test estimator.</p>
+<p>Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection. The data for <em>pre</em> pandemic posts spans 11 months whereas the data at the point of collection only makes 3 months of <em>post</em> pandemic posts available for use. The unequal-sized data sets for each <em>period</em> therefore allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.</p>
+<p>We performed hypothesis tests with a significance level of <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.</p>
 </div>
 </div>
 
