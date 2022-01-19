@@ -1,35 +1,45 @@
 # Methodology
 
-In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and then conduct an exploratory data analysis (eda) on several Reddit datasets which is described below.
+In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and conduct an exploratory data analysis (EDA) on several subreddit datasets.
 ## Data set
+The datasets, obtained from a public data resource, is called the [Reddit mental health dataset](https://zenodo.org/record/3941387#.YZl5BC1h1QL), and has been previously processed and organised by Low et al {cite:p}`low2020natural`. They provide two CSV files for each period - pre (2018-2019) and post (2019-2020) pandemic - for 15 different subreddits. 
 
-The datasets were obtained from [Reddit mental health dataset](https://zenodo.org/record/3941387#.YZl5BC1h1QL), a dataset processed and organised by Low et al {cite:p}`low2020natural`. They provide us with two CSV files, for each period (pre and post pandemic), for 15 different subreddits. 
-
-Each observation is a Reddit user's post - a message written on a specific subreddit - which has been processed to extract features that are common in natural language processing.
+Each observation is a Reddit user's post - a message written on a specific subreddit - which has been processed to extract features that are common in NLP. 
 
 The feature extractions are as follows (n is the number of columns):
-- LIWC (n=62);
-- sentiment analysis (n=4); 
-- basic word and syllable counts (n=8); 
-- punctuation (n=1); 
-- readability metrics (n=9); 
-- term frequency–inverse document frequency (TF-IDF) ngrams (256-1024) to capture words and phrases that characterize specific posts; 
-- manually built lexicons about suicidality (n=1), economic stress (n=1), isolation (n=1), substance use (n=1), domestic stress (n=1), and guns (n=1). 
+- Linguistic inquiry and word count (LIWC) (n=62);
+- Sentiment analysis (n=4); 
+- Basic word and syllable counts (n=8); 
+- Punctuation (n=1); 
+- Readability metrics (n=9); 
+- Term frequency–inverse document frequency (TF-IDF) ngrams (256-1024) to capture words and phrases that characterize specific posts; 
+- Manually built lexicons about suicidality (n=1), economic stress (n=1), isolation (n=1), substance use (n=1), domestic stress (n=1), and guns (n=1). 
 
 Alongside these features include:
-- author (Reddit user name)
+- Author (Reddit user name)
+- Date
+- Post
+## Data processing
+We used the Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`pandas` to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the 'pre' and 'post' pandemic data sets and introduced a new column _period_ to distinguish between the two time frames. This helped to represent the data better and allows us to easily compare the timeframes when conducting the exploratory analysis.
+
+We selected one of the text-derived metrics available in this dataset, _substance_abuse_total_, as the focus of our study. This value is calculated as number of references to substance abuse in a Reddit user's post and is a feature that we will use to compare across the 'pre' and 'post' pandemic datasets for each subreddit.
+
+Our final processed data sets contained the following features:
+
+- author
 - date
+- subreddit
 - post
-## Data cleaning/transformation
+- period
+- substance_use_total
 
-In order to answer the question "How has the substance use increased over the pandemic?", the feature `substance_use_total` is selected as the target feature, and the data is cleaned to focus exclusively on this feature.
+## Data Analysis
 
-The Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`pandas` were used to perform the data cleaning process.
-### Data Cleaning Steps
-- Combine the `pre` and `post` datasets into one dataset. 
-- Filter the dataset to keep only the columns of interest, including `subreddit`, `author`, `date`, `post`, and `substance_use_total`.
-### Feature Engineering
-- We apply a simple method by adding a new feature `period` to indicate the timeframe of the posts (before or after the pandemic). This helps to represent the data better and to compare the timeframes more easily in later parts of this report. 
-### Room for improvement
-- It is noted that in our `process_raw.py` script, we used the `try-except` block to make the script runnable. The reason behind is to allow the script to load all files except for files with extension `.DS_Store`.  The `.DS_Store` files are automatically created by Mac OS X Finder in browsed directories.
-- In case more time to work on this is given, we expect to enhance the `process_raw.py` script without using the `try-except` block.
+
+
+## Hypothesis testing using Wilcoxon rank-sum statistic
+For each subreddit data set we computed the Wilcoxon rank-sum statistic and compared the median number of references to substance abuse per Reddit post.
+
+The Wilcoxon rank-sum statistic (also referred to as the Mann-Whitney-Wilcoxon rank-sum) 
+
+Given the data imbalance of each data set where there are unequal-sized samples for each _period_, the Wilcoxon rank-sum statistic lends itself to be more a better test statistic.
