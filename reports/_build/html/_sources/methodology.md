@@ -21,7 +21,7 @@ Alongside these features include:
 - Post
 
 For this specific study, we have discarded most of these features from the dataset as they are unrelated to the question in focus. Even though understanding the sentiment of the posts over the pandemic is cruicial to developing a narrative, most of this work has already been conducted by Low et al {cite:p}`info:doi/10.2196/22635`. 
-Instead, we have selected one of the text-derived metrics available in this dataset, `_substance_abuse_total_`, as the focus metric. This value is calculated as the number of references to substance abuse in a Reddit user's post and is a feature that we will use to compare across the _before_ and _during_ pandemic datasets for each subreddit.
+Instead, we have selected one of the text-derived metrics available in this dataset, `substance_abuse_total`, as the focus metric. This value is calculated as the number of references to substance abuse in a Reddit user's post and is a feature that we will use to compare across the _before_ and _during_ pandemic datasets for each subreddit.
 
 Our final processed data sets contained the following features:
 
