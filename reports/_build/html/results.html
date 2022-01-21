@@ -228,15 +228,16 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="results">
 <h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<p>Using the Wilcoxon rank-sum test, we can set up our hypotheses for this test as follows:</p>
-<p><span class="math notranslate nohighlight">\(H_0:\)</span> The median number of references to substance abuse per reddit-post is the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
-<p><span class="math notranslate nohighlight">\(H_a:\)</span> The median number of references to substance abuse per reddit-post is <strong>not</strong> the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p>Using the Wilcoxon rank-sum test from the Python <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library, we can set up our hypotheses for this test as follows:</p>
+<p><span class="math notranslate nohighlight">\(H_0:\)</span> The median number of references to substance abuse per Reddit post is the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p><span class="math notranslate nohighlight">\(H_a:\)</span> The median number of references to substance abuse per Reddit post is <strong>not</strong> the same in subreddit-specific ‘pre-COVID’ and ‘post-COVID’ datasets.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library provided the corresponding p-values for each subreddit. The smaller the p-value, the stronger the evidence against the null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>. For a given subreddit, if the p-value is smaller than the predetermined level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, then there is evidence to reject the null hypothesis in favour of the alternative hypothesis, <span class="math notranslate nohighlight">\(H_a\)</span>.</p>
 <p>Our results for each subreddit is as follows:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_93b40_">
+<table id="T_1e7e2_">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Subreddit</th>
@@ -246,79 +247,79 @@
   </thead>
   <tbody>
     <tr>
-      <td id="T_93b40_row0_col0" class="data row0 col0" >bipolarreddit</td>
-      <td id="T_93b40_row0_col1" class="data row0 col1" >-0.692095</td>
-      <td id="T_93b40_row0_col2" class="data row0 col2" >0.488878</td>
+      <td id="T_1e7e2_row0_col0" class="data row0 col0" >bipolarreddit</td>
+      <td id="T_1e7e2_row0_col1" class="data row0 col1" >-0.692095</td>
+      <td id="T_1e7e2_row0_col2" class="data row0 col2" >0.488878</td>
     </tr>
     <tr>
-      <td id="T_93b40_row1_col0" class="data row1 col0" >EDAnonymous</td>
-      <td id="T_93b40_row1_col1" class="data row1 col1" >1.922717</td>
-      <td id="T_93b40_row1_col2" class="data row1 col2" >0.054516</td>
+      <td id="T_1e7e2_row1_col0" class="data row1 col0" >EDAnonymous</td>
+      <td id="T_1e7e2_row1_col1" class="data row1 col1" >1.922717</td>
+      <td id="T_1e7e2_row1_col2" class="data row1 col2" >0.054516</td>
     </tr>
     <tr>
-      <td id="T_93b40_row2_col0" class="data row2 col0" >socialanxiety</td>
-      <td id="T_93b40_row2_col1" class="data row2 col1" >0.990075</td>
-      <td id="T_93b40_row2_col2" class="data row2 col2" >0.322138</td>
+      <td id="T_1e7e2_row2_col0" class="data row2 col0" >socialanxiety</td>
+      <td id="T_1e7e2_row2_col1" class="data row2 col1" >0.990075</td>
+      <td id="T_1e7e2_row2_col2" class="data row2 col2" >0.322138</td>
     </tr>
     <tr>
-      <td id="T_93b40_row3_col0" class="data row3 col0" >alcoholism</td>
-      <td id="T_93b40_row3_col1" class="data row3 col1" >-1.407757</td>
-      <td id="T_93b40_row3_col2" class="data row3 col2" >0.159203</td>
+      <td id="T_1e7e2_row3_col0" class="data row3 col0" >alcoholism</td>
+      <td id="T_1e7e2_row3_col1" class="data row3 col1" >-1.407757</td>
+      <td id="T_1e7e2_row3_col2" class="data row3 col2" >0.159203</td>
     </tr>
     <tr>
-      <td id="T_93b40_row4_col0" class="data row4 col0" >lonely</td>
-      <td id="T_93b40_row4_col1" class="data row4 col1" >-2.041229</td>
-      <td id="T_93b40_row4_col2" class="data row4 col2" >0.041228</td>
+      <td id="T_1e7e2_row4_col0" class="data row4 col0" >lonely</td>
+      <td id="T_1e7e2_row4_col1" class="data row4 col1" >-2.041229</td>
+      <td id="T_1e7e2_row4_col2" class="data row4 col2" >0.041228</td>
     </tr>
     <tr>
-      <td id="T_93b40_row5_col0" class="data row5 col0" >healthanxiety</td>
-      <td id="T_93b40_row5_col1" class="data row5 col1" >0.184029</td>
-      <td id="T_93b40_row5_col2" class="data row5 col2" >0.853990</td>
+      <td id="T_1e7e2_row5_col0" class="data row5 col0" >healthanxiety</td>
+      <td id="T_1e7e2_row5_col1" class="data row5 col1" >0.184029</td>
+      <td id="T_1e7e2_row5_col2" class="data row5 col2" >0.853990</td>
     </tr>
     <tr>
-      <td id="T_93b40_row6_col0" class="data row6 col0" >ptsd</td>
-      <td id="T_93b40_row6_col1" class="data row6 col1" >-0.551019</td>
-      <td id="T_93b40_row6_col2" class="data row6 col2" >0.581621</td>
+      <td id="T_1e7e2_row6_col0" class="data row6 col0" >ptsd</td>
+      <td id="T_1e7e2_row6_col1" class="data row6 col1" >-0.551019</td>
+      <td id="T_1e7e2_row6_col2" class="data row6 col2" >0.581621</td>
     </tr>
     <tr>
-      <td id="T_93b40_row7_col0" class="data row7 col0" >suicidewatch</td>
-      <td id="T_93b40_row7_col1" class="data row7 col1" >1.643746</td>
-      <td id="T_93b40_row7_col2" class="data row7 col2" >0.100229</td>
+      <td id="T_1e7e2_row7_col0" class="data row7 col0" >suicidewatch</td>
+      <td id="T_1e7e2_row7_col1" class="data row7 col1" >1.643746</td>
+      <td id="T_1e7e2_row7_col2" class="data row7 col2" >0.100229</td>
     </tr>
     <tr>
-      <td id="T_93b40_row8_col0" class="data row8 col0" >addiction</td>
-      <td id="T_93b40_row8_col1" class="data row8 col1" >0.481856</td>
-      <td id="T_93b40_row8_col2" class="data row8 col2" >0.629908</td>
+      <td id="T_1e7e2_row8_col0" class="data row8 col0" >addiction</td>
+      <td id="T_1e7e2_row8_col1" class="data row8 col1" >0.481856</td>
+      <td id="T_1e7e2_row8_col2" class="data row8 col2" >0.629908</td>
     </tr>
     <tr>
-      <td id="T_93b40_row9_col0" class="data row9 col0" >bpd</td>
-      <td id="T_93b40_row9_col1" class="data row9 col1" >-0.454428</td>
-      <td id="T_93b40_row9_col2" class="data row9 col2" >0.649521</td>
+      <td id="T_1e7e2_row9_col0" class="data row9 col0" >bpd</td>
+      <td id="T_1e7e2_row9_col1" class="data row9 col1" >-0.454428</td>
+      <td id="T_1e7e2_row9_col2" class="data row9 col2" >0.649521</td>
     </tr>
     <tr>
-      <td id="T_93b40_row10_col0" class="data row10 col0" >autism</td>
-      <td id="T_93b40_row10_col1" class="data row10 col1" >1.358547</td>
-      <td id="T_93b40_row10_col2" class="data row10 col2" >0.174290</td>
+      <td id="T_1e7e2_row10_col0" class="data row10 col0" >autism</td>
+      <td id="T_1e7e2_row10_col1" class="data row10 col1" >1.358547</td>
+      <td id="T_1e7e2_row10_col2" class="data row10 col2" >0.174290</td>
     </tr>
     <tr>
-      <td id="T_93b40_row11_col0" class="data row11 col0" >schizophrenia</td>
-      <td id="T_93b40_row11_col1" class="data row11 col1" >0.246796</td>
-      <td id="T_93b40_row11_col2" class="data row11 col2" >0.805066</td>
+      <td id="T_1e7e2_row11_col0" class="data row11 col0" >schizophrenia</td>
+      <td id="T_1e7e2_row11_col1" class="data row11 col1" >0.246796</td>
+      <td id="T_1e7e2_row11_col2" class="data row11 col2" >0.805066</td>
     </tr>
     <tr>
-      <td id="T_93b40_row12_col0" class="data row12 col0" >adhd</td>
-      <td id="T_93b40_row12_col1" class="data row12 col1" >2.955800</td>
-      <td id="T_93b40_row12_col2" class="data row12 col2" >0.003119</td>
+      <td id="T_1e7e2_row12_col0" class="data row12 col0" >adhd</td>
+      <td id="T_1e7e2_row12_col1" class="data row12 col1" >2.955800</td>
+      <td id="T_1e7e2_row12_col2" class="data row12 col2" >0.003119</td>
     </tr>
     <tr>
-      <td id="T_93b40_row13_col0" class="data row13 col0" >depression</td>
-      <td id="T_93b40_row13_col1" class="data row13 col1" >1.693505</td>
-      <td id="T_93b40_row13_col2" class="data row13 col2" >0.090359</td>
+      <td id="T_1e7e2_row13_col0" class="data row13 col0" >depression</td>
+      <td id="T_1e7e2_row13_col1" class="data row13 col1" >1.693505</td>
+      <td id="T_1e7e2_row13_col2" class="data row13 col2" >0.090359</td>
     </tr>
     <tr>
-      <td id="T_93b40_row14_col0" class="data row14 col0" >anxiety</td>
-      <td id="T_93b40_row14_col1" class="data row14 col1" >6.492918</td>
-      <td id="T_93b40_row14_col2" class="data row14 col2" >0.000000</td>
+      <td id="T_1e7e2_row14_col0" class="data row14 col0" >anxiety</td>
+      <td id="T_1e7e2_row14_col1" class="data row14 col1" >6.492918</td>
+      <td id="T_1e7e2_row14_col2" class="data row14 col2" >0.000000</td>
     </tr>
   </tbody>
 </table>

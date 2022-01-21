@@ -237,7 +237,7 @@
 <p>In order to investigate how substance use on Reddit has changed over the pandemic, we first introduce the dataset and conduct an exploratory data analysis (EDA) on several subreddit datasets.</p>
 <div class="section" id="data-set">
 <h2>Data set<a class="headerlink" href="#data-set" title="Permalink to this headline">¶</a></h2>
-<p>The datasets, obtained from a public data resource, is called the <a class="reference external" href="https://zenodo.org/record/3941387#.YZl5BC1h1QL">Reddit mental health dataset</a>, and has been previously processed and organised by Low et al <span id="id1">[<a class="reference internal" href="references.html#id8">LRT+20b</a>]</span>. The data includes Reddit posts from 826,961 unique users from 2018 to 2020. They provide two CSV files for each period - pre (2018-2019) and post (2019-2020) pandemic - for 15 different subreddits.</p>
+<p>The datasets, obtained from a public data resource, is called the <a class="reference external" href="https://zenodo.org/record/3941387#.YZl5BC1h1QL">Reddit mental health dataset</a>, and has been previously processed and organised by Low et al <span id="id1">[<a class="reference internal" href="references.html#id8">LRT+20b</a>]</span>. The data includes Reddit posts from 826,961 unique users from 2018 to 2020. They provide two CSV files for each period - <em>before</em> (2018-2019) and <em>during</em> (2020) the pandemic - for 15 different subreddits.</p>
 <p>Each observation is a Reddit user’s post - a message written on a specific subreddit - which has been processed to extract features that are common in NLP.</p>
 <p>The feature extractions are as follows (n is the number of columns):</p>
 <ul class="simple">
@@ -255,11 +255,8 @@
 <li><p>Date</p></li>
 <li><p>Post</p></li>
 </ul>
-</div>
-<div class="section" id="data-processing">
-<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
-<p>We used the Python programming language <span id="id2">[<a class="reference internal" href="references.html#id11">pyp</a>]</span> and the Pandas library <span id="id3">[<a class="reference internal" href="references.html#id9">pdt20</a>]</span> to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the ‘pre’ and ‘post’ pandemic data sets and introduced a new column <em>period</em> to distinguish between the two time frames. This helped to represent the data better and allows us to easily compare the timeframes when conducting the exploratory analysis.</p>
-<p>We selected one of the text-derived metrics available in this dataset, <em>substance_abuse_total</em>, as the focus of our study. This value is calculated as number of references to substance abuse in a Reddit user’s post and is a feature that we will use to compare across the ‘pre’ and ‘post’ pandemic datasets for each subreddit.</p>
+<p>For this specific study, we have discarded most of these features from the dataset as they are unrelated to the question in focus. Even though understanding the sentiment of the posts over the pandemic is cruicial to developing a narrative, most of this work has already been conducted by Low et al <span id="id2">[<a class="reference internal" href="references.html#id7">LRT+20a</a>]</span>.
+Instead, we have selected one of the text-derived metrics available in this dataset, <code class="docutils literal notranslate"><span class="pre">_substance_abuse_total_</span></code>, as the focus metric. This value is calculated as the number of references to substance abuse in a Reddit user’s post and is a feature that we will use to compare across the <em>before</em> and <em>during</em> pandemic datasets for each subreddit.</p>
 <p>Our final processed data sets contained the following features:</p>
 <ul class="simple">
 <li><p>author</p></li>
@@ -270,12 +267,19 @@
 <li><p>substance_use_total</p></li>
 </ul>
 </div>
+<div class="section" id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
+<p>We used the Python programming language <span id="id3">[<a class="reference internal" href="references.html#id11">pyp</a>]</span> and the Pandas library <span id="id4">[<a class="reference internal" href="references.html#id9">pdt20</a>]</span> to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the <em>before</em> and <em>during</em> pandemic data sets and introduced a new column <em>period</em> to distinguish between the two time frames. This helped to represent the data better and allow us to easily compare the timeframes when conducting the exploratory analysis.</p>
+</div>
 <div class="section" id="data-analysis">
 <h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
-<p>[pic of eda to show distribution of data for a few subreddits]</p>
-<p>Deciding which test statistic to use when performing hypothesis tests depends on the distribution of the data and its characteristics. Given that the distribution of substance_use_total is skewed we decided to use the median as oppose to the mean for our test estimator.</p>
-<p>Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection. The data for <em>pre</em> pandemic posts spans 11 months whereas the data at the point of collection only makes 3 months of <em>post</em> pandemic posts available for use. The unequal-sized data sets for each <em>period</em> therefore allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.</p>
-<p>We performed hypothesis tests with a significance level of <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.</p>
+<p>We explored the dataset for each of the subreddits and compared the distribution of <code class="docutils literal notranslate"><span class="pre">substance_use_total</span></code> across the two time periods. We found that the differences in the proportion of references to substance use per post per subreddit is not too significant.</p>
+<p><img alt="Faceted Subreddit" src="_images/subreddit_facet_plot.png" /></p>
+<p>Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection which can be observed in the next plot. The data for the time period <em>before</em> the pandemic spans 11 months whereas the data at the point of collection only made 3 months of posts <em>during</em> the pandemic available for use.</p>
+<p><img alt="Faceted Subreddit" src="_images/subreddit_facet_count.png" /></p>
+<p>Deciding which test statistic to use when performing hypothesis tests should depend on the distribution of the data and its characteristics.
+We found that the distribution of <code class="docutils literal notranslate"><span class="pre">substance_use_total</span></code> is skewed, meaning that the average number of references to substance use was not normally distributed. We therefore decided to use the median, as opposed to the mean, for our test estimator. Additionally, the unequal-sized data sets for each <code class="docutils literal notranslate"><span class="pre">period</span></code> allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.</p>
+<p>The Wilcoxon rank-sum statistic is a statistic commonly used when comparing two independent samples to assess whether their population median ranks differ. We performed hypothesis tests with a significance level of <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.</p>
 </div>
 </div>
 

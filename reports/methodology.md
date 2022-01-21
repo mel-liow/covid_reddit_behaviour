@@ -21,7 +21,7 @@ Alongside these features include:
 - Post
 
 For this specific study, we have discarded most of these features from the dataset as they are unrelated to the question in focus. Even though understanding the sentiment of the posts over the pandemic is cruicial to developing a narrative, most of this work has already been conducted by Low et al {cite:p}`info:doi/10.2196/22635`. 
-Instead, we have selected one of the text-derived metrics available in this dataset, _substance_abuse_total_, as the focus metric. This value is calculated as the number of references to substance abuse in a Reddit user's post and is a feature that we will use to compare across the _before_ and _during_ pandemic datasets for each subreddit.
+Instead, we have selected one of the text-derived metrics available in this dataset, `_substance_abuse_total_`, as the focus metric. This value is calculated as the number of references to substance abuse in a Reddit user's post and is a feature that we will use to compare across the _before_ and _during_ pandemic datasets for each subreddit.
 
 Our final processed data sets contained the following features:
 
@@ -32,17 +32,18 @@ Our final processed data sets contained the following features:
 - period
 - substance_use_total
 ## Data processing
-We used the Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`pandas` to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the _before_ and _during_ pandemic data sets and introduced a new column _period_ to distinguish between the two time frames. This helped to represent the data better and allow us to easily compare the timeframes when conducting the exploratory analysis.
+We used the Python programming language {cite:p}`pypi` and the Pandas library {cite:p}`pandas` to perform the data reading and processing. We automated this process by writing two Python scripts - one that downloads the raw datasets and another that renames columns and reduces the data to the columns of interest. Additionally, we combined the _before_ and _during_ pandemic data sets and introduced a new column `period` to distinguish between the two time frames. This helped to represent the data better and allow us to easily compare the timeframes when conducting the exploratory analysis.
 ## Data Analysis
 
-[pic of eda to show distribution of data for a few subreddits]
+We explored the dataset for each of the subreddits and compared the distribution of `substance_use_total` across the two time periods. We found that the differences in the proportion of references to substance use per post per subreddit is not too significant. 
 
-Deciding which test statistic to use when performing hypothesis tests depends on the distribution of the data and its characteristics. Given that the distribution of `substance_use_total` is skewed, we decided to use the median as oppose to the mean for our test estimator.
+![Faceted Subreddit](images/subreddit_facet_plot.png)
 
-Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection. The data for the _before_ pandemic posts spans 11 months whereas the data at the point of collection only makes 3 months of the _during_ pandemic posts available for use. The unequal-sized data sets for each `period` therefore allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.
+Moreover, from the data analysis we saw that there was a data imbalance based on the time of data collection which can be observed in the next plot. The data for the time period _before_ the pandemic spans 11 months whereas the data at the point of collection only made 3 months of posts _during_ the pandemic available for use.
 
-The Wilcoxon rank-sum statistic is used to compare two independent samples to assess whether their population median ranks differ.
+![Faceted Subreddit](images/subreddit_facet_count.png)
 
-Wilcoxon rank-sum test is used to compare two independent samples, while Wilcoxon signed-rank test is used to compare two related samples, matched samples, or to conduct a paired difference test of repeated measurements on a single sample to assess whether their population mean ranks differ.
+Deciding which test statistic to use when performing hypothesis tests should depend on the distribution of the data and its characteristics. 
+We found that the distribution of `substance_use_total` is skewed, meaning that the average number of references to substance use was not normally distributed. We therefore decided to use the median, as opposed to the mean, for our test estimator. Additionally, the unequal-sized data sets for each `period` allowed us to determine the Wilcoxon rank-sum statistic as a suitable test statistic.
 
-We performed hypothesis tests with a significance level of $\alpha = 0.05$, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.
+The Wilcoxon rank-sum statistic is a statistic commonly used when comparing two independent samples to assess whether their population median ranks differ. We performed hypothesis tests with a significance level of $\alpha = 0.05$, to determine which subreddits had a statistically significant difference in median number of references to substance abuse over the two time frames. The results are shown in the next section.
