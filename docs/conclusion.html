@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conclusion &#8212; Covid Reddit Behaviour</title>
+    <title>Conclusion &#8212; COVID Reddit Behaviour</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -76,7 +76,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Covid Reddit Behaviour</h1>
+      <h1 class="site-logo" id="site-title">COVID Reddit Behaviour</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -86,20 +86,20 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
-   Introduction
+  <a class="reference internal" href="abstract.html">
+   Analysing Reddit Behaviour during the COVID Pandemic
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="methodology.html">
-   Methodology
+  <a class="reference internal" href="introduction.html">
+   Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="data_analysis.html">
-   Data Analysis
+  <a class="reference internal" href="methodology.html">
+   Methodology
   </a>
  </li>
  <li class="toctree-l1">
@@ -222,20 +222,14 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
 <h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
-<p>We conducted a statistical analysis on data gathered from multiple subreddits to answer an inferential question on whether the number of substance abuse references increased during the 2020 COVID-19 pandemic on Reddit.</p>
-<p>We discuss limitations of our analysis in our <a class="reference internal" href="results.html"><span class="doc std std-doc">results</span></a> and include an examination of our datasets in the <a class="reference internal" href="data_analysis.html"><span class="doc std std-doc">data analysis</span></a>.</p>
-<p>The hypothesis tests for each subreddit are presented in a <a class="reference internal" href="results.html"><span class="doc std std-doc">table</span></a> and shows the different subreddits along with the p-values. p-values less than 0.05 indicate that there is statistical evidence that the median number of references to substance abuse has changed post-COVID.</p>
-<p>We conclude that only two subreddits, r/adhd and r/lonely show statistically siginificant difference. Accordingly, we reject the null hypothesis in favour of the alternative hypothesis - that in these subreddits, the median number of references to substance abuse per reddit-post has changed between ‘pre-COVID’ and ‘post-COVID’.</p>
+<p>We conducted a statistical analysis on data gathered from multiple subreddits to answer an inferential question on whether the number of substance abuse references per user post increased during the course of the COVID-19 pandemic on Reddit.</p>
+<p>The hypothesis tests for each subreddit were presented in a <a class="reference internal" href="results.html"><span class="doc std std-doc">table</span></a> alongside their corresponding p-values. A p-value less than 0.05 indicated that there was statistical evidence that the median number of references to substance abuse per post had changed since before the pandemic.</p>
+<p>We conclude that only two subreddits, <em>r/adhd</em> and <em>r/lonely</em> showed statistically siginificant difference. Accordingly, we reject the null hypothesis in favour of the alternative hypothesis - i.e that in these subreddits, the median number of references to substance abuse per Reddit-post <em>has</em> changed between the time before the pandemic and during.</p>
 <div class="section" id="further-work">
 <h2>Further work<a class="headerlink" href="#further-work" title="Permalink to this headline">¶</a></h2>
-<p>Note that we did not explicitly comment on whether the median is significantly less or more than pre-COVID times. It would be interesting to compare and plot how each subreddit has changed to visually show the results.</p>
-<p>Additionally there are numerous other questions that we could have asked with this dataset, namely questions that involve text sentiment:</p>
-<ul class="simple">
-<li><p>Analyse which words/sentiments are most-associated with particular subreddits dedicated to particular health concerns;</p></li>
-<li><p>Identify whether those who self-identify with particular illnesses choose particular language to express their feelings/symptoms, or whether there are common terms across self-described mental health groups;</p></li>
-<li><p>How can we flag users that are in need of urgent attention and care based on their comments;</p></li>
-<li><p>Can we apply what we’ve learned from the mental-health-specific subreddits and see if we can identify related behaviour/sentiments in the non-mental-health subreddits (i.e. do people in r/divorce use some of the same language as those in r/depression).</p></li>
-</ul>
+<p>There is room for improving the justifications of using the Wilcoxon rank-sum test for this particular dataset. From further investigation, it may be inappropritate to use this particular test statistic given that the Wilcoxon rank-sum works best for ordinal and paired data <span id="id1">[<a class="reference internal" href="references.html#id15">Xia20</a>]</span>. Therefore further work includes a reassessment on using this particular method and instead deduce a more appropriate test statistic to conduct the hypothesis tests.</p>
+<p>Additionally, the scope of this report only reveals the frequency of substance use related words per Reddit post. It does not delve further into more contextual significant meaning - i.e. we do not explore whether this metric is correlated to a rise in substance abuse or the effect it has on Reddit users. This is open research that is also mentioned in the paper by Low et al <span id="id2">[<a class="reference internal" href="references.html#id7">LRT+20a</a>]</span>.</p>
+<p>However, this report opens up more avenues in terms of the methodology used to explore trends in online behaviours. Given the ease of automating the data processing and analysis using Python, conducting a statistical test to investigate the significance of differences in behaviours <em>before</em> and <em>during</em> the COVID-19 pandemic is accessible to many researchers and those interested in the field. We have provided a research “template” and methodology as a foundation that can be built upon and improved to help further investigate the effects of the COVID-19 pandemic on online users.</p>
 </div>
 </div>
 
@@ -286,7 +280,7 @@
     <div class="container">
       <p>
         
-          By Luke Collins, Mel Liow, Nobby Nguyen, Maeve Shi<br/>
+          By Mel Liow<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
