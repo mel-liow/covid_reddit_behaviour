@@ -19,7 +19,7 @@ For the first week, we conducted exploratory data analysis on 30 datasets (15 me
 
 ## Dataset
 
-The datasets we used contain reddit user posts and text-derived metrics (e.g. the `substance_use_total` feature) from 15 mental health subreddits: r/EDAnonymous, r/addiction, r/alcoholism, r/adhd, r/anxiety, r/autism, r/bipolarreddit, r/bpd, r/depression, r/healthanxiety, r/lonely, r/ptsd, r/schizophrenia, r/socialanxiety, and r/suicidewatch.
+The datasets we used contain reddit user posts and text-derived metrics from 15 mental health subreddits: r/EDAnonymous, r/addiction, r/alcoholism, r/adhd, r/anxiety, r/autism, r/bipolarreddit, r/bpd, r/depression, r/healthanxiety, r/lonely, r/ptsd, r/schizophrenia, r/socialanxiety, and r/suicidewatch. We select only _one_ of the text-derived metrics available in this dataset - **substance_abuse_total** - as the focus of our study.
 
 Timeframe of datasets: 
 
@@ -32,8 +32,41 @@ More information can be found [here](https://zenodo.org/record/3941387#.YZl5BC1h
 Our final report can be found [here](https://ubc-mds.github.io/covid_reddit_behaviour/introduction.html)
 
 ## Usage
-To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided and commands required to fetch the relevant data will be provided as follow.
-Please run the following commands at the command line/terminal after cloning the GitHub repository to your machine.
+Please clone the GitHub repository to your machine.
+To replicate the analysis, all relevant scripts will be made available in this GitHub repository. All necessarily dependencies will be provided as well as the commands required to fetch the relevant data. There are also several ways that you can run the analysis - this will be detailed below.
+ 
+
+
+### 1. Docker 
+
+Please make sure you have a working set up of Docker on your pc.
+The estimated time to download data and complete the analysis is 30 minutes.
+
+**Mac Users**. 
+Run the following command at the command line/terminal from the root directory of this project:  
+```console
+docker run --rm -v /$(pwd):/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour all
+```
+Note: For M1 users, please add the flag `--platform linux/amd64`. 
+
+To delete the results, please run the following commands at the command line/terminal from the root directory of this project:
+```console
+docker run --rm -v /$(pwd):/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour clean
+```
+
+**Window Users** 
+ 
+Run the following command at the command line/terminal from the root directory of this project:  
+```console
+docker run --rm -it -v <Project_Path>:/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour all
+```
+To delete the results, please run the following commands at the command line/terminal from the root directory of this project:
+```console
+docker run --rm -it -v <Project_Path>:/home/covid-reddit-behaviour melliow94/covid-reddit-behaviour make -C /home/covid-reddit-behaviour clean
+```
+
+### 2. `Make` 
+To replicate the analysis without Docker you can create a virtual conda environment as follows:
 
 Install our conda environment:
 ```console
@@ -47,6 +80,20 @@ In addition to the environment setup above, you will be required to run the scri
 ```console
 npm install -g vega vega-cli vega-lite canvas
 ```
+You can then run the following command at the command line/terminal from the root directory of the project:
+```console
+make all
+```
+To reset the repo to a clean state, run the following from the root directory of the project:
+```console
+make clean
+```
+
+#### Makefile dependency diagram
+![Makefile dependencies](Makefile.png)
+
+
+### 3. Running scripts manually
 
 1. Run the following scripts from the project's root directory:
 
@@ -85,9 +132,8 @@ jupyter-book build reports
 The workflow of our analysis is illustrated in the flowchart below.
 ![Flowchart](flowchart.png)
 
+
+
 ## License
 The source code for the site is licensed under the MIT license, which you can find [here](https://github.com/UBC-MDS/covid_reddit_behaviour/blob/main/LICENSE).
-## References
-Low D, Rumker L, Talkar T, Torous J, Cecchi G, Ghosh S  
-Natural Language Processing Reveals Vulnerable Mental Health Support Groups and Heightened Health Anxiety on Reddit During COVID-19: Observational Study  
-Journal of medical Internet research, 22(10), e22635.
+

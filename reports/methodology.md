@@ -6,6 +6,41 @@ The datasets, obtained from a public data resource, is called the [Reddit mental
 
 Each observation is a Reddit user's post - a message written on a specific subreddit - which has been processed to extract features that are common in NLP. 
 
+### Feature details
+|Feature|Description|
+|---|---|
+|author|author of the Reddit post|
+|date|date of the Reddit post|
+|post|raw post text|
+|automated_readability_index|a readability metric for English text which measures the understandability of a text|
+|coleman_liau_index|a readability metric for English text which measures the understandability of a text|
+|flesch_kincaid_grade_level|a readability metric for English text which measures how difficult a piece of text is to understand|
+|flesch_reading_ease|${\displaystyle 206.835-1.015\left({\frac {\text{total words}}{\text{total sentences}}}\right)-84.6\left({\frac {\text{total syllables}}{\text{total words}}}\right)}$|
+|gulpease_index|a readability metric based on the length of words <br \> the number of words, and the length of sentences.|
+|gunning_fog_index|a readability metric for English text which measures the understandability of a text|
+|lix|a readability metric for English text which measures how difficult a piece of text is to understand|
+|smog_index|a readability metric that measures how many years of education the average person needs to have to understand a text.|
+|wiener_sachtextformel|a readability metric which measures the understandability of a text|
+|n_chars|number of characters in post|
+|n_long_words|number of long words in post|
+|n_monosyllable_words|number of monosyllabic words in post|
+|n_polysyllable_words|number of polysyllabic words in post|
+|n_syllables|number of syllables in post|
+|n_unique_words|number of unique words in post|
+|n_words|number of words in post|
+|sent_neg|negative sentiment score of post|
+|sent_neu|neutral sentiment score of post|
+|sent_pos|positive sentiment score of post|
+|economic_stress_total|count of mentions of economic stress in post|
+|isolation_total|count of mentions of isolation in post|
+|substance_use_total|count of mentions of substance abuse in post|
+|guns_total|count of mentions of guns in post|
+|domestic_stress_total|count of mentions of domestic stress in post|
+|suicidality_total|count of mentions of suicide in post|
+|punctuation|count of punctuation in post|
+|LIWC-based metrics|Linguistic Inquiry and Word Count - a metric derived from the degree to which various categories of words are used in a text|
+|TF-IDF-based metrics| Term frequency–inverse document frequency - a statistic that is tries to reflect how important a word is in a piece of text|
+
 The feature extractions are as follows (n is the number of columns):
 - Linguistic inquiry and word count (LIWC) (n=62);
 - Sentiment analysis (n=4); 
